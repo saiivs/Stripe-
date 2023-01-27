@@ -1,0 +1,229 @@
+.btn-circle.btn-md { 
+        
+            width: 45px; 
+            height: 45px; 
+            border-radius: 1px !important; 
+            border: 1px solid #F2F4F4;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            text-align: center; 
+            margin: 3px;
+    text-transform: uppercase;
+        } 
+        
+.btn-circle.btn-md:hover { 
+            width: 45px; 
+            height: 45px;
+            text-align: center; 
+            border-color:#059DFF;
+          
+        } 
+.btn-circle.btn-md:focus { 
+            width: 45px; 
+            height: 45px;
+            text-align: center; 
+            border-color:#059DFF;
+            outline: none;
+        } 
+
+.btn.btn-circle.btn-md.active  {
+               border: 1px solid #F2F4F4;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+border-bottom: 4px solid #059DFF;
+}
+
+ .btn-circle.btn-md.BrownBox {
+    background-color: #997E5B;
+}
+
+ .btn-circle.btn-md.WhiteBox {
+    background-color: #FFF;
+}
+
+ .btn-circle.btn-md.GreyBox {
+    background-color: #CCC;
+}
+
+ .btn-circle.btn-md.BlackBox {
+    background-color: #000;
+}
+
+ .btn-circle.btn-md.BlueBox {
+    background-color: #5A7893;
+}
+
+ .btn-circle.btn-md.Sand {
+    background-color: #BFB1A4;
+}
+
+ .btn-circle.btn-md.artRosa {
+    background-color: #B78E95;
+}
+
+ .btn-circle.btn-md.blueMidnight {
+    background-color: #1A2B46;
+}
+
+ .btn-circle.btn-md.antGray {
+    background-color: #3F3F3F;
+}
+
+ .btn-circle.btn-md.lightYellow {
+    background-color: #CEAE74;
+}
+
+ .btn-circle.btn-md.DGreyGrey {
+    background-image: -webkit-linear-gradient(90deg, #E4E2E1 50%, #9E928E 50%);
+}
+
+ .btn-circle.btn-md.beigeGrey {
+    background-image: -webkit-linear-gradient(90deg, #E4E2E1 50%, #323135 50%);
+}
+
+ .btn-circle.btn-md.pinkGrey {
+    background-image: -webkit-linear-gradient(90deg, #E4E2E1 50%, #B59FA0 50%);
+}
+
+ .btn-circle.btn-md.yellowGrey {
+    background-image: -webkit-linear-gradient(90deg, #E4E2E1 50%, #F3DDAC 50%);
+}
+
+ .btn-circle.btn-md.blueGrey {
+   background-image: -webkit-linear-gradient(90deg, #E4E2E1 50%, #758396 50%);
+}
+
+ .btn-circle.btn-md.openBox {
+       background: url(https://charpstar.se/Configurator/Box/Images/Open.png) no-repeat top left;
+          background-size: 33px 33px;
+          background-position : center;
+}
+
+ .btn-circle.btn-md.closeBox {
+       background: url(https://charpstar.se/Configurator/Box/Images/Close.png) no-repeat top left;
+       background-size: 33px 33px;
+        background-position : center;
+}
+
+ .btn-circle.btn-md.size-button { 
+     background-color: #FFF;
+     width: 122px;
+     font-size : 12px;
+     font-weight: 800;
+      line-height:27px;
+     text-align: center;
+     display: inline-block;
+     
+ }
+ 
+
+ .btn-circle.btn-md.annotationToggle { 
+     background-color: #FFF;
+     width: 162px;
+     font-size : 10px;
+     font-weight: 800;
+      line-height:27px;
+     text-align: center;
+     
+ }
+
+.configControlArea {
+    background-color: #fff;
+    margin-top:2%;
+    margin-bottom:2%;
+    padding-left : 10px;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
+
+.configRow { 
+margin : 4%;
+
+}
+
+.textArea {
+    padding-top : 7.5%;
+    padding-bottom: 3%;
+}
+
+
+.textArea p {
+    font-size: 12px;
+    color: #111111;
+ 
+}
+
+
+.mainContainer { 
+    background-color: #B6C0C7;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
+
+.arConfigButton { 
+    background: #059DFF;
+    color: #f2f0fb;
+  border: none;
+    text-transform: uppercase;
+    padding: 12px 45px;
+    border-radius: 3px;
+
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+}
+
+
+
+
+
+
+
+@media(max-width:1300px) {
+    .mainTitle {
+        margin-top: 0.25rem!important;
+        font-size: 20px;
+    }
+    
+    .vertical-text  {
+        font-size: 12px;
+        font-weight: 800;
+    }
+    
+    .btn-circle.btn-md.size-button {
+    background-color: #FFF;
+    width: 102px;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 27px;
+    text-align: center;
+    display: inline-block;
+}
+}
+
+@media(max-width:1200px) {
+
+}
+
+@media(max-width:992px) {
+    .configRow { 
+    margin: 0%;
+    }
+    
+    .configControlArea {
+         box-shadow: none;   
+        margin-bottom: 0px;
+    }
+    
+    .mainContainer { 
+      box-shadow: none; 
+      padding: 0px !important;
+     
+    }
+
+}
+
+@media(max-width:768px) {
+	
+}
+
+@media(max-width:576px) {
+	
+}
+

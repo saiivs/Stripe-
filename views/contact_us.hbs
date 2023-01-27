@@ -1,0 +1,155 @@
+
+<style>
+    input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s;
+            -webkit-text-fill-color: rgb(0, 0, 0) !important;
+        }
+</style>
+      <!---pcrr-area start--->
+       <div class="pcrr-area">
+       	  <div class="container">
+       	  	  <div class="row">
+       	  	  	  <div class="col-lg-6 col-md-6">
+       	  	  	  	   <div class="pcrr-left">
+       	  	  	  	   	   <h2 class="wow fadeInUp">You're just a few<br>clicks away from<br>enhancing your<br>E-Commerce</h2>
+       	  	  	  	   	   <p class="wow fadeInUp">Schedule a demo now to learn how <br>CharpstAR can increase sales for you!</p>
+       	  	  	  	   </div>
+       	  	  	  </div>
+       	  	  	  <div class="col-lg-6 col-md-6">
+       	  	  	  	   <div class="pcrr-right wow fadeInUp">
+       	  	  	  	   	   <form id="contactInfo">
+       	  	  	  	   	   	 <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-12 col-md-12">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a1">
+       	  	  	  	   	   	 	 	 	 <p>Email</p>
+       	  	  	  	   	   	 	 	 	 <input type="email" id="c_email" name="email" onkeyup="cemail()" placeholder="Email" required />
+       	  	  	  	   	   	 	 	 </div>
+                                     <small id="c_er_email" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+       	  	  	  	   	   	 <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-12 col-md-12">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a2">
+       	  	  	  	   	   	 	 	 	 <p>Your Name</p>
+       	  	  	  	   	   	 	 	 	 <input type="text" id="c_name" name="name" onkeyup="cname()" placeholder="Your Name" required/>
+       	  	  	  	   	   	 	 	 </div>
+                                     <small id="c_er_name" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+       	  	  	  	   	   	   <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-4 col-md-4">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a3">
+       	  	  	  	   	   	 	 	 	 <p>Country</p>
+                                        <input type="text" id="c_country" name="country" onkeyup="countryInfo()" placeholder="Sweden" />
+       	  	  	  	   	   	 	 	 </div>
+                                     <small id="c_er_country" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 	 <div class="col-lg-8 col-md-8">
+       	  	  	  	   	   	 	 	  <div class="pcrr-right_a3">
+       	  	  	  	   	   	 	 	  	 <p>Phone Number</p>
+       	  	  	  	   	   	 	 	     <input type="tel" id="c_phone" name="phone" onkeyup="cphone()" placeholder="+46" />
+       	  	  	  	   	   	 	 	  </div>
+                                      <small id="c_er_phone" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+                              <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-12 col-md-12">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a2">
+       	  	  	  	   	   	 	 	 	 <p>Business Name</p>
+       	  	  	  	   	   	 	 	    <input type="text" id="c_business" name="businessName" onkeyup="business()" placeholder="Google" required/> 	 
+       	  	  	  	   	   	 	 	 </div>
+                                     <small id="c_er_business" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+       	  	  	  	   	   	 <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-12 col-md-12">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a2">
+       	  	  	  	   	   	 	 	 	 <p>Your Role</p>
+       	  	  	  	   	   	 	 	 	 <input type="text" id="c_role" name="role" onkeyup="roleInfo()" placeholder="CEO" />
+       	  	  	  	   	   	 	 	 </div>
+                                     <small id="c_er_role" class="text-danger"></small>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+       	  	  	  	   	   	  <div class="row">
+       	  	  	  	   	   	 	 <div class="col-lg-12 col-md-12">
+       	  	  	  	   	   	 	 	 <div class="pcrr-right_a4">
+       	  	  	  	   	   	 	 	 	<input type="submit" onclick="return submitInfo()" value="Book a demo" />
+                                          <span></span>
+       	  	  	  	   	   	 	 	 </div>
+       	  	  	  	   	   	 	 </div>
+       	  	  	  	   	   	 </div>
+                             <small id="succMsg" class="text-success fw-bold" ></small>
+       	  	  	  	   	   </form>
+       	  	  	  	   </div>
+       	  	  	  </div>
+       	  	  </div>
+              
+       	  </div>
+           
+       </div>
+      <!---pcrr-area end--->
+<div class = "text-center clientContactForm">
+<h2 class = "clientListBrand" >All our Clients! </h2></div>
+<div class = "container clientList">
+
+<div class="row">
+                        <div class="col-lg-12 mt--10">
+                            <ul class="brand-list brand-style-2">
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/aj.png" width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/az.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/babybjorn.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/balingslov.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/birlea.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/brasommar.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/calixter.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/cargobike.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/dako.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/dunsterhouse.png"  width="100px"  ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/elon.png"  width="100px"  ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/ep.png"  width="100px"  ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/finja.png"  width="100px"  ></li>
+                            
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/hemtex.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/hfn.png" width="100px"  ></li>
+                                <!--<li><img src="https://cdnx.charpstar.net/images/Clients/New/hm.png"  width="100px" ></li>-->
+          
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/mark.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/mspa.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/nibe.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/norsk.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/panasonic.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/plantagen.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/posh.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/royal.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/soffadirekt.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/svenskttenn.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/synsam.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/tatefencing.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/tibergs.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/vauni.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/verket.png"  width="100px" ></li>
+                                <li><img src="https://cdnx.charpstar.net/images/Clients/New/woven.png"  width="100px" ></li>
+                      
+                            </ul>
+                        </div>
+                    </div>
+  </div>
+ 
+
+    
+ 
+
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/main.js"></script>
+
+    <script src="/js/contact.js"></script>
+   
+ 

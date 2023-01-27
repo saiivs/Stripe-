@@ -1,0 +1,540 @@
+<style>
+
+td {
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
+}
+
+</style><!----area start--->
+    <div class="ctp-area ctp-area">
+        <div class="container" id="customContainer">
+            <div class="ctp-top">
+                <h2 class="wow fadeInUp">Choose the plan</h2>
+                <p class="wow fadeInUp">Customizable plans, no matter what your priorities may be. We offer scalable
+                    pricing with no set-up fees. <br> Unsure what suits you best? Get started with our starter plan and
+                    try out a demo model for free</p>
+            </div>
+
+          {{!-- range bar --}}
+            <div style="text-align: center;">
+                <h5>Select Quantity</h5>
+            </div>
+           
+            <div class="range-slider">
+              <div id="demotr" >Please slide for quantity
+         </div>  
+              <input class="range-slider__range" id="rangeInput" type="range" value="1" min="0" max="500" step="5">
+              <span class="range-slider__value"  id="qnt">0</span>
+            </div>
+
+          {{!-- range bar ends --}}
+          
+            
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12" id="tab1">
+                    <div class="ctp-part  ctp-part11 wow fadeInUp customHeight" id="h-tab1">
+                        <p>Free</p>
+                        <div class="dis">
+                            <h2><span>$</span>0</h2>
+                            <h5>/ once / product</h5>
+                        </div>
+                        <h4>Starter</h4>
+                        <span class="span_a1"></span>
+                         <table class="table" style="width: 105%;">
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Limited free month</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                            </tr>
+     
+                        </table>
+
+                        <div class="ctp-part_btn custombtn">
+                            <a  href="/contactUs">Request demo</a>
+                        </div>
+                          
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12" id="tab2">
+                    <div class="ctp-part ctp-part33 wow fadeInUp" id="h-tab2" >
+                        <p>Annually</p>
+                        <div class="dis">
+                            <h2 id="A-p"><span id="A-d">$</span>7</h2>
+                            <h5 id="qntChange1">/ month / product</h5>
+                        </div>
+                        <h4>Discounted</h4>
+                        <span class="span_a1"></span>
+                        <table class="table" style="width: 105%;">
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">White label 3D Viewer</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">QR Code Access to AR (for desktop)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Dedicated account manager</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Virtual Try-On (VTO) support</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Twelve Month Notice Period</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Update products free of charge twice a year</td>
+                            </tr>
+                            
+                        </table> 
+                       <div class="ctp-part_btn ">
+                            <a onclick="subscription(1)">Subscribe</a>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12" id="tab3">
+                    <div class="ctp-part wow fadeInUp" id="h-tab3">
+                        <p>Monthly</p>
+                        <div class="dis">
+                            <h2 id="M-p"><span id="M-d">$</span>8</h2>
+                            <h5 id="qntChange2">/ month / product</h5>
+                        </div>
+                        <h4>Stable</h4>
+                        <span class="span_a1"></span>
+                       
+                        
+                        <table class="table" style="width: 105%;">
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">White label 3D Viewer</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">QR Code Access to AR (for desktop)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Dedicated account manager</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Virtual Try-On (VTO) support</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Two Month Notice Period</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Update products free of charge once a year</td>
+                            </tr>
+                            
+                        </table>
+
+                         <div class="ctp-part_btn ">
+                            <a onclick="subscription(2)">Subscribe</a>
+                        </div> 
+                    </div>
+                </div>
+                
+
+                {{!-- mobile device swipe starts --}}
+                
+                    <div class="swiper mySwiper" id="swiperVisibility" hidden>
+                        <div class="swiper-wrapper" >
+                        <div class="ctp-part  ctp-part11 wow fadeInUp swiper-slide customHeight" id="h1">
+                            <p>Free</p>
+                            <div class="dis">
+                                <h2><span>$</span>0</h2>
+                                <h5>/ once / product</h5>
+                            </div>
+                            <h4>Starter</h4>
+                            <span class="span_a1"></span>
+                            <table class="table" >
+                                <tr>
+                                    <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                    <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                                
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                    <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                                
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                    <td style="padding: 4px 0.4rem;">Limited free month</td>
+                                
+                                </tr>
+                                <tr>
+                                    <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                    <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                                </tr>
+                                
+                                
+                            </table>
+
+                            <div class="ctp-part_btn custombtn">
+                                <a  href="/contactUs">Request demo</a>
+                            </div>
+                        </div>
+                            {{!-- second slide --}}
+
+                            <div class="ctp-part ctp-part33 wow fadeInUp swiper-slide" id="h2" >
+                                    <p>Annually</p>
+                                    <div class="dis">
+                                        <h2 id="z"><span>$</span>7</h2>
+                                        <h5 id="qnt-Mob-1" >/ month / product</h5>
+                                    </div>
+                                    <h4>Discounted</h4>
+                                    <span class="span_a1"></span>
+                                
+                                    
+                                    <table class="table" >
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                                        
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                                        
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">White label 3D Viewer</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">QR Code Access to AR (for desktop)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Dedicated account manager</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Virtual Try-On (VTO) support</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Twelve Month Notice Period</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                            <td style="padding: 4px 0.4rem;">Update products free of charge twice a year</td>
+                                        </tr>
+                                        
+                                    </table>  
+                                <div class="ctp-part_btn ">
+                                        <a onclick="subscription(1)">Subscribe</a>
+                                    </div>  
+                            </div>
+                            {{!-- second slide ends --}}
+
+                            {{!-- third slide --}}
+                    <div class="ctp-part wow fadeInUp swiper-slide" id="h3">
+                        <p>Monthly</p>
+                        <div class="dis">
+                            <h2 id="g" ><span>$</span>8</h2>
+                            <h5 id="qnt-Mob-2" >/ month / product</h5>
+                        </div>
+                        <h4>Stable</h4>
+                        <span class="span_a1"></span>
+                       
+                        
+                        <table class="table" >
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Zero setup fees</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">3D Model Asset Creation</td>
+                            
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Web Based Augmented Reality (AR)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">White label 3D Viewer</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">QR Code Access to AR (for desktop)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Dedicated account manager</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Virtual Try-On (VTO) support</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Two Month Notice Period</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px 0.4rem;"><i class="fa fa-check-circle clrbulet" aria-hidden="true"></i> </td>
+                                <td style="padding: 4px 0.4rem;">Update products free of charge once a year</td>
+                            </tr>
+                            
+                        </table>
+
+                         <div class="ctp-part_btn">
+                            <a onclick="subscription(2)">Subscribe</a>
+                        </div>
+                    </div>
+                            {{!-- third slide ends --}}
+                        </div>
+                        {{!-- dots --}}
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        {{!-- dots end --}}
+                   </div>
+                
+                   
+                {{!-- mobile device swipe ends --}}
+            </div>
+        </div>
+    </div>
+    <!---ctp-area end--->
+ 
+     <div class="faq-area" id="faqArea">
+        <div class="container">
+            <div class="faq-top">
+                <h2 class="wow fadeInUp">Frequently<br>asked questions </h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="faq-left faq-left_a1 wow fadeInUp">
+                        <h2 class="wow fadeInUp">Using AR</h2>
+                        <span class="wow fadeInUp"></span>
+                        <div class="ziehharmonika wow fadeInUp">
+                            <h3>What is AR?</h3>
+                            <div>
+                                <p>Augmented reality (AR) is an interactive experience of a real-world environment where
+                                    the objects that reside in the real world are enhanced by computer-generated
+                                    information. This system combines real and virtual worlds, real-time interaction,
+                                    and an accurate 3D registration of virtual and real objects.</p>
+                            </div>
+                            <h3>How do I use WebAR (Augmented Reality)?</h3>
+                            <div>
+                                <p>In any way that you want! AR has many applications over a wide spectrum of areas - Be
+                                    it for entertainment, e-commerce, or work, the possibilities are endless. All you
+                                    need is an AR enabled device - most modern smartphones have this capability!</p>
+                            </div>
+                            <h3>Which devices can work with CharpstAR's WebAR?</h3>
+                            <div>
+                                <p>Most modern device models are AR-compatible and have AR software integrated into your
+                                    phone. Apple users running on iOS 11.0 or later, and Android users running on
+                                    Android 7.0 or later with the default "Play Services for AR" app installed from the
+                                    Google Play Store will be able to experience AR content straight from their devices.
+                                </p>
+                            </div>
+                            <h3>How do I implement WebAR on my website?</h3>
+                            <div>
+                                <p>Just embed CharpstAR’s AR Code Snippet on your website, and voila! Your customers
+                                    will be able to interact with your AR content straight from the website, no external
+                                    devices or software needed!</p>
+                            </div>
+                            <h3>Do you have custom solutions? We offer highly customised products and would require some
+                                personalised solutions.</h3>
+                            <div>
+                                <p>Yes of course! We understand that every company would have specific needs and we
+                                    would be more than happy to understand them and see how we can help. Feel free to
+                                    contact us here for a consultation.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="faq-left faq-left_a2">
+                        <h2 class="wow fadeInUp">Pricing </h2>
+                        <span class="wow fadeInUp"></span>
+                        <div class="ziehharmonika wow fadeInUp">
+                            <h3>What defines one product? </h3>
+                            <div>
+                                <p>One Product refers to one hosted AR link. One product equals one SKU. A singular
+                                    product will get full access to all of our personalised services, including asset
+                                    management, configuration, 3D viewing and more.</p>
+                            </div>
+                            <h3>How do I scale up my subscription?</h3>
+                            <div>
+                                <p>With our Dynamic Pricing model, the more products you have with us, the cheaper it
+                                    would be. Reach out to our dedicated Sales team to receive a quotation on the
+                                    customised profile of services and products that you require.</p>
+                            </div>
+                            <h3>What if I want to change products?</h3>
+                            <div>
+                                <p>We understand that your business may change your offerings from time to time, and we
+                                    are fully committed to supporting you in your goals. Just reach out to our Sales
+                                    team who will be more than happy to assist you in changing your product lineup.</p>
+                            </div>
+                            <h3>Can I showcase the same product on more than one platform? </h3>
+                            <div>
+                                <p>Our service is restricted to continent licenses for now. A fee of the monthly SKU
+                                    price will apply for the additional continent you choose. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-left faq-left_a3">
+                        <h2 class="wow fadeInUp">Security & Privacy</h2>
+                        <span class="wow fadeInUp"></span>
+                        <div class="ziehharmonika wow fadeInUp">
+                            <h3>Will my data and information remain private and secure? </h3>
+                            <div>
+                                <p>You have the right to have your products listed either publicly or privately. Rest
+                                    assured that CharpstAR will never reveal your personal information to external
+                                    parties. Should we want to use certain information for promotional purposes, we will
+                                    always request your permission.</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/ziehharmonika.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/main.js"></script>
+
+    <!-- mdb -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+
+    <!-- my custom js -->
+    <script src="/js/custom.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $('.ziehharmonika').ziehharmonika({
+                    collapsible: true,
+                });
+            });
+    </script>
+
+    <script>
+
+        $(".owl-carousel").owlCarousel({
+            "items": 5,
+            "margin": 15,
+            "autoplay": true,
+            "autoplayTimeout": 2000,
+            "loop": true,
+            "nav": false,
+            "dop": true,
+            stageClass: 'owl-stage',
+            "responsive": {
+                0: {
+                    "items": 1
+                },
+                576: {
+                    "items": 1
+                },
+                767: {
+                    "items": 1
+                },
+                991: {
+                    "items": 1
+                }
+
+
+            }
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides:true,
+            grabCursor:true,
+            loop: false,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            },
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>

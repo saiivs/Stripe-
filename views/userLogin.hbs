@@ -1,0 +1,81 @@
+<link rel="stylesheet" type="text/css" href="/css/login-style.css" />
+
+<style>
+  input:-webkit-autofill, input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus, input:-webkit-autofill:active { transition:
+  background-color 5000s ease-in-out 0s; -webkit-text-fill-color: rgb(13, 11,
+  11) !important; font-family: Ubuntu-Bold; line-height: 1.2; font-size: 18px
+  !important; display: block; width: 100%; background: 0 0; height: 62px;
+  padding: 0 20px 0 38px; } form { min-width: auto; align-self: center;
+  border-radius: 0px; padding: 0; } body { background-color: #F7F7F7; }
+  input:-webkit-autofill, input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus, textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus,
+  select:-webkit-autofill, select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus { -webkit-text-fill-color: #fff; font-size:
+  18px; }
+
+</style>
+
+<body>
+
+  <div class="container-login100">
+
+    <div class="wrap-login100 p-t-50 p-b-90">
+      <div class="login-logo">
+        <img src="/images/login_logo.png" alt="" />
+      </div>
+
+      <form
+        action="/ClientArea/Get"
+        method="post"
+        class="login100-form validate-form flex-sb flex-w"
+      >
+
+        <span class="login100-form-title p-b-51">
+          Login
+        </span>
+        <div
+          class="wrap-input100 validate-input m-b-16"
+          data-validate="Email Address is required"
+        >
+          <input
+            class="input100"
+            type="email"
+            name="userEmail"
+            id="form3Example3"
+            placeholder="Email Address"
+          />
+          <span class="focus-input100"></span>
+        </div>
+        <div
+          class="wrap-input100 validate-input m-b-16"
+          data-validate="Password is required"
+        >
+          <input
+            class="input100"
+            type="password"
+            name="userPass"
+            id="form3Example4"
+            placeholder="Password"
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+          <button type="submit" class="login100-form-btn">
+            Login
+          </button>
+        </div>
+      </form>
+      {{#if err}}
+        <small class="text-danger">{{err}}</small>
+      {{/if}}
+      <div class="goBack py-4">
+        <a href="/pricing">Go to pricing page</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+<!-- MDB -->

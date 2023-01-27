@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "stripe-project-372806",
+  "private_key_id": "24f63301bb88c30006ba4aeec7967117267e195f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC6s/qPEDjWyLD5\nLsTfkNtqmCzs9/Cg1tCpmABXm/eNY/Bvxdd8gIp/3tkj9lZGrXZFFC+ZdHvO2fQF\nogF2JzG+PEZSkiErwlBl6TJf25Ezs6r1cFhmGrGadfK58VluCWo331MODAP+tT4/\nDArkonN23qFcPizS7s1Y341J94zcdynLBjjokVdHXHWkJ/Vc6yARRSyj8CUT8LFm\nJlpH/nzq2P3lMtgKSW8uVuiUhRh0UZU9VC9WFZ8V2VqwoFlfmT7x8P1R/UfQ+Tf0\nUW9yO8pHy+JO7zsUaQiuhblWb1pgbbwVndxBYX8erChsTJvKOGUhY5ogupMvEloS\ny7IsQuCVAgMBAAECggEATOWQ9riPOIN7RH5rTstaW8pmgolSHeSsF5XH2k2eRala\nX6bkLF7C7Iyr8YBlo4GROz1np3QPBDDHrUQ/Btt4xOoNarfOGrhTJc5I1atY4CsJ\naEKH3jHzYXNf8A7ELyqIiY+dJSV0xcT/aLc8i1OPa++hFR10l8IMaKTWjBb9+NUU\n2KndMK520WTnK0It5W5XjGaTWkjCUnCYZuY9aCNSR5mH2YCdeyRuuPllTe46fVd7\njEwXk0j0je7EjcmIBKUk6rZmzm2zhHnWLn1lBkjw3KoLw+LTrfC+upV65TYum1en\nUlXQic2RO6H9jcoZdCl1cEQb9aZ0OwcCMnulWTGTZwKBgQDvXDJNkVuyyXVq5J+4\nSYBkaWeksc9K9ZjP41Gh60Qjy+fwLSTm9jmlgiuhAQsmyYXwRA4wMWchcyeAH9Z7\nauy7yFYyikOEZtgxWozci1xesFjAmsEFWwc9Vbe9h9chEAJ5ub62L/txehCUd8jE\nBTlvzwz7YENjJA8U1LHT2E/oMwKBgQDHrqnUhrRcHXh9YsnX7nNIfOCe1klhoprU\nrdl7p9IsSkpijKCE1W3sdNekKpnGAaHfaE6wp2agW6HHQCsCif/vHehgciVJB6SA\nqbIad1Il8uCizCo7DASQWQtjg5WCJuPrWNI8vk10tbD1R0p50nbWKNECsC/Zak/I\nDWWYkuLsFwKBgBe3zQw+oRWAPPBQozsBnYVVpH1/WQkWeQPwhIBE7cWWSO9Vqdhx\nAZlS4rvbfJ1lTq5WMAm6e3unC3z4qqokGD0rRs9PQA14m2eYj2izLn37f2/mZcYA\nFSGQwto3Aaw3B+fD7g/jhUjjTY1IqU4zLlPT8ndePI8wXYY05UIWpyRdAoGAUqfC\nNO7tiZPJZF2YH4HcxoyqjhU1muysGo08ESuOnDbEQ7biWxndvps/B/16WbQjRU7w\nA7/Hg2lqtgehxhNJlblTj1iwhmJbfcbAqqPppTu8MKdCc96tpPK2/CJjqNRgU/MY\nU3ySo1TyQxWXhoXQGyYaHnq/08dl7vFctKNYu1ECgYEAgZww7A6/jrW+CZvp8OcI\nAnECTg2HLC9A9fmwf0HAO43GXb/FWfGFQKJ8DjrBZgmlLP7326TAEUt8BGPMsAi0\nR3ctOC7Vj92pxms3NU8jzp7M5U40CQyONCB5Xdbt/1it2vkdVjdub/xj/B6MwDDp\nnuVOZAOg+fTIOfeKB4arGgM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "stripe@stripe-project-372806.iam.gserviceaccount.com",
+  "client_id": "117562575426223735220",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stripe%40stripe-project-372806.iam.gserviceaccount.com"
+}

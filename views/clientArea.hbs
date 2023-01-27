@@ -1,0 +1,64 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<style>
+body {
+background-color : #F7F7F7;
+font-family:Ubuntu-Regular,sans-serif;
+    }</style>
+
+<div class="col-lg-9 tableContainer text-nowrap" id="tabId" >
+        <h2>Product Details</h2>
+        <p >Enter the details of products to be made in AR and 3D</p>  
+        <table class=" table table-borderless" id="tableBorder" >
+            <form id="formTable">
+                <thead class = "clientTableHeader">
+                <tr id="tableHeading">
+                    <th style="width: 5%">SNo</th>
+                    <th style="width: 15%">ARTICLE ID</th>
+                    <th style="width: 30%">PRODUCT NAME</th>
+                    <th style="width: 50%">PRODUCT PAGE LINK</th>
+                </tr>
+                </thead>
+                <tbody>
+                   {{#each dataArr}} 
+                <tr id="{{inc @index}}">
+                    <td style="width: 5%" class = "idColumn">{{inc @index}}</td>
+                    <td style="width: 15%" ><input style="width: 100%" type="text" name="articleId"  id="" value="{{this.ArticleId}}"></td>
+                    <td style="width: 30%"><input style="width: 100%" type="text" name="productName" id="" value="{{this.ProductName}}"></td>
+                    <td style="width: 100%"><input style="width: 100%" type="text" name="productLink" id="" value="{{this.ProductLink}}"></td>
+                </tr>
+                    {{/each}}
+                </tbody>
+            </form>
+        </table>
+ 
+        <div>   
+        <small id="Err" class="text-danger"></small>
+        </div> 
+</div>
+
+<div class="loading-btn-wrapper">
+            <button id="tabBtn" form="formTable" class="loading-btn js_btn-animation-trigger">
+               <span>Submit</span> 
+            </button>
+</div> 
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    
+       <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/ziehharmonika.js"></script>
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script src="/js/clientArea.js"></script>

@@ -1,0 +1,77 @@
+<div class="ctp-area ctp-area">
+        <div class="container">
+            <div class="successMsg" id="succMsg">
+                    <div class="jumbotron text-center" style = "background-color:#E6E6E6">
+              <h1 class="display-3">Thank You for Subscribing!</h1>
+              <p class="lead"><strong>Please check your email</strong> for a temporary password and use that to login to our client area where you can begin adding your products to be made in <strong>AR and 3D!</strong></p>
+              <hr>
+              <p>
+                Having trouble? <a href="/Contact">Contact us</a>
+              </p>
+              <p class="lead my-2">
+                <button class="ty-form-btn" onclick="window.location.href='/ClientArea/login';" role="button">Continue to Client Area</button>
+              </p>
+            </div>
+
+            
+    </div>
+        </div>
+    </div>
+  
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/ziehharmonika.js"></script>
+
+    <!-- google api script -->
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <!-- Fontawesome Script -->
+    <script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
+    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/main.js"></script>
+
+    <script src="/js/success.js"></script>
+    
+
+    <script>
+        $(document).ready(async ()=> {
+            $('.ziehharmonika').ziehharmonika({
+                collapsible: true,
+            });
+        });
+    </script>
+
+
+    <script>
+
+        $(".owl-carousel").owlCarousel({
+            "items": 5,
+            "margin": 15,
+            "autoplay": true,
+            "autoplayTimeout": 2000,
+            "loop": true,
+            "nav": false,
+            "dop": true,
+            stageClass: 'owl-stage',
+            "responsive": {
+                0: {
+                    "items": 1
+                },
+                576: {
+                    "items": 1
+                },
+                767: {
+                    "items": 1
+                },
+                991: {
+                    "items": 1
+                }
+
+
+            }
+        });
+    </script>
+

@@ -1,0 +1,18 @@
+{{!-- <h1>{{message}}</h1>
+<h2>{{error.status}}</h2>
+<pre>{{error.stack}}</pre> --}}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="page-404">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <!--BEGIN CONTENT-->
+                <div class="inner-circle"><i class="fa fa-cogs"></i><span>{{error.status}}</span></div>
+                <span class="inner-status">Opps! {{message}}!</span>
+                <span class="inner-detail"><a href="/">Go back to home</a></span>
+                <!--END CONTENT-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+
+.mac_container{
+	width: 100%;
+	margin: 10px auto;
+    z-index: 3000;
+    
+}
+
+.mac_scaler{
+	margin: auto;
+	width: 100%;
+	padding-top: 57.875%;
+	height: 0px;
+	position: relative;
+}
+
+
+.mac_holder{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+
+.mac_screen{
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	background: #111;
+	width: 100%;
+	height: 130%;
+	/*border-radius: 15px;*/
+	border-top-left-radius: 2% 3%;
+	border-top-right-radius: 2% 3%;
+	border-bottom-left-radius: 5% 3%;
+	border-bottom-right-radius: 5% 3%;
+	box-sizing: border-box;
+	padding: 3%;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #ddd;
+
+}
+
+
+
+.mac_camera{
+	background: #333;
+	border-radius: 50%;
+	width: 1%;
+	height: 1.5%;
+	position: absolute;
+	left: 49.5%;
+	top: 2%;
+}
+
+.mac_camera:after{
+	content: '';
+	position: absolute;
+	left: 35%;
+	top: 40%;
+	width: 30%;
+	height: 30%;
+	border-radius: 50%;
+	background: #777;
+
+}
+
