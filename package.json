@@ -28,5 +28,14 @@
   "main": "app.js",
   "author": "",
   "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saiivs/Stripe-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saiivs/Stripe-/issues"
+  },
+  "homepage": "https://github.com/saiivs/Stripe-#readme",
   "description": ""
 }

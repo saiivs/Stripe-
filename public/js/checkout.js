@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded',async ()=>{
           data:address,
           success:(response)=>{  
             if(response.userExist){
-              swal(`Found ongoing subscription. Please contact our team.`)
+              swal(`Found an ongoing subscription. Please contact our team.`)
               .then(()=>{
-                location.href = "/"
+                location.href = "/contactUs"
               })
             }else{
              console.log("client reached");
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
           await stripe.confirmPayment({
             elements,
             confirmParams:{
-              return_url: `http://localhost:3000/success`
+              return_url: `https://charpstar.co.uk/success`
             }
         }).then((result)=>{
           console.log("finished");
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         document.getElementById("afterPayBtn").innerHTML = "Please check the details you entered"
         setTimeout(()=>{
           document.getElementById("afterPayBtn").innerHTML = ""
-        },3000)
+        },4000)
       }
     })
   })

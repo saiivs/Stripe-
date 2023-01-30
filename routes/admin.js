@@ -30,7 +30,7 @@ function afterLogOut(req,res,next){
 /* GET admin login. */
 router.get("/",checkSession,(req,res)=>{
   try{
-    res.render('adminLogin',{Err:req.session.adminError})
+    res.render('adminLogin',{Err:req.session.adminError,otherPages:true,pageTitle:"Admin - "})
     req.session.adminError = false;
   }catch(error){
 
@@ -45,7 +45,7 @@ router.get("/users",afterLogOut,async(req,res)=>{
     if(!users){
       notFound = "No users to view"
     }
-    res.render('adminUser',{users,notFound})
+    res.render('adminUser',{users,notFound,otherPages:true,pageTitle:"Admin Area - "})
   }catch(error){
 
   }
@@ -55,12 +55,14 @@ router.get("/users",afterLogOut,async(req,res)=>{
 router.post('/adminCheck',(req,res)=>{
   try{
     let {email,password} = req.body;
+    console.log(req.body);
     let verify = email == admin.email && password == admin.password ? true : false;
+    console.log(verify);
     if(verify){
       req.session.adminLogin = true;
       res.redirect('/admin/users')
     }else{
-      req.session.adminError = "*Invalid credentials";
+      req.session.adminError = "*Invalid Email or Password";
       res.redirect("/admin")
     }
   }catch(error){
@@ -81,7 +83,7 @@ router.get("/product/Get/:email",afterLogOut,async(req,res,next)=>{
     }else{
       notFound = "No data to view"
     }
-    res.render('adminProduct',{data,userName,notFound})
+    res.render('adminProduct',{data,userName,notFound,otherPages:true,pageTitle:"Admin - Products View - "})
     
   }catch(error){
     console.log("admin error");

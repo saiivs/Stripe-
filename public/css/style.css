@@ -2,14 +2,14 @@ body{
 	font-family: Ubuntu-Regular, sans-serif;
 	color: #100f0f;
 	background-size: 400% 400%;
-	 background-image: #fff;
+	background-color: #fff;
 	height: 100%;
 }
 
 @font-face{
     font-family:Ubuntu-Regular;
     src:url(../fonts/ubuntu/Ubuntu-Regular.ttf)
-}
+} 
 @font-face{
     font-family:Ubuntu-Bold;
     src:url(../fonts/ubuntu/Ubuntu-Bold.ttf)
@@ -217,7 +217,7 @@ a.button-blue {
     padding: 18px 33px;
     border-radius: 3px;
     font-weight: 700;
-    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+       box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 }
 
 
@@ -230,7 +230,7 @@ a.button-blue-custom {
     padding: 23px 38px;
     border-radius: 3px;
     font-weight: 700;
-    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+        box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
 }
 a.button-black-custom  {
     font-size: 20px;
@@ -238,7 +238,7 @@ a.button-black-custom  {
        font-weight: 700;
        margin-top: 1%;
     color: #100f0f;
- box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
      padding: 23px 38px;
     border-radius: 3px;
 }
@@ -251,7 +251,6 @@ a.button-black-custom  {
 a.button-blue:hover{
     background: #100f0f;
     color: #f2f0fb;
-    outline:  1px solid #f2f0fb;
 
 }
 a.button-black:hover{
@@ -986,21 +985,25 @@ box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24
 .pcrr-right_a4 input[type="submit"] {
     color: #F7F7F7;
     font-size: 18px;
-    border: none;
-    outline: none;
+    border: none !important;
+    outline: none !important;
     background: #059DFF;
     padding: 10px 18px;
     border-radius: 1px;
     margin-top: 42px;
     transition: 0.2s all ease;
     width: 100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    
+   
 }
 
 
 .pcrr-right_a4 input[type="submit"]:hover {
     background-color: #161616;
     color: #F7F7F7;
+    border: none !important;
+    outline: none !important;
 }
 
 
@@ -2561,7 +2564,7 @@ header .overlay {
     background: #059dff;
     border-radius: 2px;
     transition: .2s all ease;
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+      box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
     }
   
     .loading-btn:hover {
@@ -2860,7 +2863,7 @@ header .overlay {
       margin-top: 10rem;
       margin-bottom: 2%;
       background-color: #fff;
-     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    
 
   }
 .table-borderless > tbody > tr > td,
@@ -2873,9 +2876,10 @@ header .overlay {
 }
 
 .clientTableHeader {
- border-top: 1px solid #eaeaea !important;
- border-bottom: 1px solid #eaeaea !important;
-    font-size: 10px;
+ padding-top: 3%;
+ border: 1px solid #efefef !important;
+ font-size: 10px;
+    line-height: 30px;
     
 }
   .tableContainerUpdated{
@@ -2885,7 +2889,7 @@ header .overlay {
   }
   
   #tableBorder{
-  
+
       text-align: center;
   }
   
@@ -2894,14 +2898,15 @@ header .overlay {
   }
   
 input {
-    border : 1px solid #ddd !important;
     font-size: 12px !important;;
-    background: #FFFFFF;
+    background: #eee;
     color : #222;
-    font-family:Ubuntu-Regular,sans-serif !important;
 }
-tr { 
 
+
+
+tr { 
+ border: 1px solid #efefef !important;
 }
   .tableBtn{
       background-color: #059DFF;
@@ -2912,7 +2917,7 @@ tr {
   }
 
    #tableHeading {
-      background-color: #F2F4F5;
+      background-color: #fff;
       color : #9B9B9B !important;
    }
 

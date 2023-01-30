@@ -124,7 +124,8 @@ router.get("/",client,checkLogout,(req,res,next)=>{
   try{
     let name =req.user
     let logout = req.Btn
-    res.render('index',{name,indexHead:true,nav:true,active1:true,active2:false,active3:false,active4:false,logout})
+    res.render('index',{name,indexHead:true,nav:true,active1:true,active2:false,active3:false,active4:false,logout,otherPages:false})
+    indexHead = false;
   }catch(error){
     next(error)
   }  
@@ -135,7 +136,7 @@ router.get('/pricing',checkSubscription,client,checkLogout, function(req, res, n
   try{ 
     let name = req.user  
     let logout = req.Btn 
-    res.render('pricing',{name,nav:true,foo:true,active1:false,active2:true,active3:false,active4:false,logout});
+    res.render('pricing',{name,nav:true,foo:true,active1:false,active2:true,active3:false,active4:false,logout,otherPages:true,pageTitle:"Pricing -"});
   }catch(error){
     next()
   }
@@ -146,7 +147,7 @@ router.get('/pricingFaq',client,checkLogout,(req,res,next)=>{
     let faq = "faq"
     let name = req.user
     let logout = req.Btn
-    res.render('pricing',{faq,name,nav:true,foo:true,active1:true,active2:false,active3:false,active4:false,logout})
+    res.render('pricing',{faq,name,nav:true,foo:true,active1:true,active2:false,active3:false,active4:false,logout,otherPages:true,pageTitle:"Pricing -"});
   }catch(error){
     next(error) 
   }
@@ -156,7 +157,7 @@ router.get("/businessCases",client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user
     let logout = req.Btn
-    res.render('business_cases',{name,nav:true,foo:true,active1:false,active2:false,active3:true,active4:false,logout});
+    res.render('business_cases',{name,nav:true,foo:true,active1:false,active2:false,active3:true,active4:false,logout,otherPages:true,pageTitle:"Business Cases -"});
   }catch(error){
     next()
   }
@@ -166,7 +167,7 @@ router.get("/contactUs",client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user;
     let logout = req.Btn
-    res.render('contact_us',{name,nav:true,foo:true,active1:false,active2:false,active3:false,active4:true,logout});
+    res.render('contact_us',{name,nav:true,foo:true,active1:false,active2:false,active3:false,active4:true,logout,otherPages:true,pageTitle:"Contact Us - "});
   }catch(error){
     next()
   }
@@ -176,7 +177,7 @@ router.get("/policy",client,checkLogout,(req,res,next)=>{
   try{
   let name = req.user
   let logout = req.Btn
-  res.render("privacy_policy",{name,nav:true,foo:true,logout})
+  res.render("privacy_policy",{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Privacy Policy - "})
   }catch(error){
     next(error)
   }
@@ -187,7 +188,7 @@ router.get("/termsCondition",client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user;
     let logout = req.Btn
-    res.render('terms_and_conditions',{name,nav:true,foo:true,logout})
+    res.render('terms_and_conditions',{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Terms and Conditions - "})
   }catch(error){
     next(error)
   }
@@ -239,7 +240,7 @@ router.get('/payment',client,checkLogout,(req,res,next)=>{
       let price = plan.amount;
       let duration = "month"
       price = quantity * price;
-      if(plan.planName == "Annual Plan"){
+      if(plan.planName == "Annual Plan"){ 
         price = price * 12
         duration = "year"
       }
@@ -250,7 +251,7 @@ router.get('/payment',client,checkLogout,(req,res,next)=>{
       }
       let name = req.user
       let logout = req.Btn
-      res.render('customForm',{planData,name,nav:true,logout})
+      res.render('customForm',{planData,name,nav:true,logout,otherPages:true,pageTitle:"Payment -"})
     }else{
       res.redirect('/pricing')
     }   
@@ -410,29 +411,24 @@ let tableUpdation = await transporterAdmin.sendMail({
 // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
 }
-catch(error){
-  next()
-} 
+catch(error){ 
+  next()  
+}  
 })
 
 router.get("/ClientArea/login",userSession,async(req,res,next)=>{
   try{
-    if(req.session.address){
-    let {name} = req.session.address
-    let err = req.session.Error ? req.session.Error : false;
-    req.session.success = name;
-    res.render("userLogin",{err})
-  }else{
-    let err = req.session.Error ? req.session.Error : false;
-    res.render("userLogin",{err})
-  }
+   console.log("SECOND TIME");
+  let err = req.session.Error ? req.session.Error : false;
+  res.render("userLogin",{err,otherPages:true,pageTitle:"User Login - "})
+  
   req.session.Error = false; 
   }catch(error){
     next()
   }
-  
-})
-
+   
+}) 
+ 
 router.get('/clientArea',logoutSession,async(req,res,next)=>{
   try{
           console.log("reached clientArea");
@@ -458,7 +454,7 @@ router.get('/clientArea',logoutSession,async(req,res,next)=>{
           }else{
             throw new Error("User not found")
           }
-          res.render('clientArea',{dataArr,name,nav:true,foo:true,logout:true})
+          res.render('clientArea',{dataArr,name,nav:true,foo:true,logout:true,otherPages:true,pageTitle:"Client Area - "})
         
   }catch(error){
     next()
@@ -499,6 +495,7 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 })
 
 router.get('/subscriptionTrue',(req,res)=>{
+  console.log("status flag");
   req.session.subscription = true; 
   res.json(true)  
 })
@@ -514,7 +511,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
       console.log("flag true");
       let name = req.user
       let logout = req.Btn
-      res.render('success',{name,nav:true,foo:true,logout})
+      res.render('success',{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Success - "})
       req.session.subscription = false; 
       req.session.valid = false;
     }else{
@@ -547,7 +544,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
 // send mail with defined transport object
     transporterAdmin.sendMail({
         from:'sai@charpstar.com', 
-        to:userEmail,
+        to:userEmail, 
         subject:"New Subscriber",
         text:`${userName} have been subscribed for ${planName} plan\nsubscribers Mail Id : ${userEmail}`
   });
@@ -555,7 +552,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
 
       let name = req.user
       let logout = req.Btn
-      res.render('success',{name,nav:true,foo:true,logout})
+      res.render('success',{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Success - "})
       req.session.subscription = false; 
       req.session.valid = false;
     }
@@ -577,7 +574,7 @@ router.get('/user/LogOut',(req,res,next)=>{
     let urlFrom = req.headers.referer; 
     let URL = url.parse(urlFrom,true); 
     URL = URL.pathname;  
-    if(URL == '/clientArea') res.redirect('/ClintArea/login');
+    if(URL == '/clientArea') res.redirect('/ClientArea/login');
     else res.redirect(URL)
   }catch(error){
     next(error)
@@ -585,5 +582,8 @@ router.get('/user/LogOut',(req,res,next)=>{
   
 })   
     
+router.get("/test",(req,res)=>{
+  res.render('emailOutput')
+})
 module.exports = router;
  

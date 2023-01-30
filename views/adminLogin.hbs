@@ -1,57 +1,78 @@
+<link rel="stylesheet" type="text/css" href="/css/login-style.css" />
+
 <style>
-  input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-            transition: background-color 5000s ease-in-out 0s;
-            -webkit-text-fill-color: rgb(13, 11, 11) !important;
-        }
+  input:-webkit-autofill, input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus, input:-webkit-autofill:active { transition:
+  background-color 5000s ease-in-out 0s; -webkit-text-fill-color: rgb(13, 11,
+  11) !important; font-family: Ubuntu-Bold; line-height: 1.2; font-size: 18px
+  !important; display: block; width: 100%; background: 0 0; height: 62px;
+  padding: 0 20px 0 38px; } form { min-width: auto; align-self: center;
+  border-radius: 0px; padding: 0; } body { background-color: #F7F7F7; }
+  input:-webkit-autofill, input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus, textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus,
+  select:-webkit-autofill, select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus { -webkit-text-fill-color: #fff; font-size:
+  18px; }
+
 </style>
-<!-- Section: Design Block -->
-<section class="text-center">
-  <!-- Background image -->
-  <div class="p-5 bg-image" style="
-        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
-        height: 300px;
-        "></div>
-  <!-- Background image -->
 
-  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        margin-top: -100px;
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(30px);
-        ">
-    <div class="card-body py-5 px-md-5">
+<body>
 
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
-          <h2 class="fw-bold mb-3">Admin Login</h2>
-          <h6>Enter your details</h6>
-          <form action="/admin/adminCheck" method="post">
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" name="email" class="form-control" />
-              <label class="form-label" for="form3Example3">Email address</label>
-            </div>
+  <div class="container-login100">
 
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <input type="password" id="form3Example4" name="password" class="form-control" />
-              <label class="form-label" for="form3Example4">Password</label>
-            </div>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-             LOG IN
-            </button>
-            <small class="text-danger">{{#if Err}}{{Err}}{{/if}}</small>
-          </form>
-        </div>
+    <div class="wrap-login100 p-t-50 p-b-90">
+      <div class="login-logo">
+        <img src="/images/login_logo.png" alt="" />
       </div>
+
+      <form
+        action="/admin/adminCheck"
+        method="post"
+        class="login100-form validate-form flex-sb flex-w"
+      >
+
+        <span class="login100-form-title p-b-51">
+         Admin Login
+        </span>
+        <div
+          class="wrap-input100 validate-input m-b-16"
+          data-validate="Email Address is required"
+        >
+          <input
+            class="input100"
+            type="email"
+            name="email"
+            id="form3Example3"
+            placeholder="Email Address"
+          />
+          <span class="focus-input100"></span>
+        </div>
+        <div
+          class="wrap-input100 validate-input m-b-16"
+          data-validate="Password is required"
+        >
+          <input
+            class="input100"
+            type="password"
+            name="userPass"
+            id="form3Example4"
+            placeholder="Password"
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+          <button type="submit" class="login100-form-btn">
+            Login
+          </button>
+        </div>
+      </form>
+      {{#if Err}}
+        <small class="text-danger">{{Err}}</small>
+      {{/if}}
     </div>
   </div>
-</section>
-<!-- Section: Design Block -->
 
+</body>
 <!-- MDB -->
-<script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
