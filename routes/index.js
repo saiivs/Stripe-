@@ -65,7 +65,6 @@ function checkLogout(req,res,next){
 }
 // for chechking the subscription
 function checkSubscription(req,res,next){
-  console.log(req.session.subscription);
   if(req.session.subscription){
     res.redirect("/success")
   }else{
@@ -124,9 +123,11 @@ router.get("/",client,checkLogout,(req,res,next)=>{
   try{
     let name =req.user
     let logout = req.Btn
-    res.render('index',{name,indexHead:true,nav:true,active1:true,active2:false,active3:false,active4:false,logout,otherPages:false})
+    res.render('index',{name,indexHead:true,nav:true,active1:true,active2:false,active3:false,active4:false,logout,otherPages:false,indexNav:true})
+    indexNav = false;
     indexHead = false;
   }catch(error){
+    console.log(error);
     next(error)
   }  
 })
@@ -138,7 +139,8 @@ router.get('/pricing',checkSubscription,client,checkLogout, function(req, res, n
     let logout = req.Btn 
     res.render('pricing',{name,nav:true,foo:true,active1:false,active2:true,active3:false,active4:false,logout,otherPages:true,pageTitle:"Pricing -"});
   }catch(error){
-    next()
+    console.log(error);
+    next(error)
   }
 });
 
@@ -159,7 +161,7 @@ router.get("/businessCases",client,checkLogout,(req,res,next)=>{
     let logout = req.Btn
     res.render('business_cases',{name,nav:true,foo:true,active1:false,active2:false,active3:true,active4:false,logout,otherPages:true,pageTitle:"Business Cases -"});
   }catch(error){
-    next()
+    next(error)
   }
 })
 
@@ -169,7 +171,7 @@ router.get("/contactUs",client,checkLogout,(req,res,next)=>{
     let logout = req.Btn
     res.render('contact_us',{name,nav:true,foo:true,active1:false,active2:false,active3:false,active4:true,logout,otherPages:true,pageTitle:"Contact Us - "});
   }catch(error){
-    next()
+    next(error)
   }
 })
 
@@ -201,16 +203,17 @@ router.post("/contactDetails",async(req,res,next)=>{
 
   // send mail with defined transport object
     let demo = await transporter.sendMail({
-  from: `"${name}" <sai@charpstar.com>`, // sender address
-  to: "saikrishnavs53@gmail.com", // list of receivers
-  subject: "Demo Request", // Subject line 
-  text:`${email} has requested for a demo`,
+      from: `"${name}" <no-reply@charpstar.com>`, // sender address
+      to: "admin@charpstar.com", // list of receivers
+      subject: "Demo Request", // Subject line 
+      text:`${email} has requested for a demo`,
 });
 
 if(demo){
   res.json(true)
 }
   }catch(error){
+    console.log(error);
     next(error)
   }
   
@@ -223,7 +226,7 @@ router.post('/plan/Get',(req,res,next)=>{
   let plan = plans.find(item =>item.id == planId);
   plan.quantity = quantity
   req.session.planData = plan;
-  req.session.valid = true;
+  req.session.valid = true; 
   res.json({status:true})
   }
   catch(error){
@@ -257,7 +260,7 @@ router.get('/payment',client,checkLogout,(req,res,next)=>{
     }   
   }
   catch(error){
-    next()
+    next(error)
   }
   
 })
@@ -267,18 +270,15 @@ router.get('/public_key',(req,res,next)=>{
   res.json({public_key:process.env.STRIPE_PUBLIC_KEY})
   }
   catch(error){
-    next() 
+    next(error) 
   } 
 })
 
 // customer creation in stripe
 router.post('/createCustomer',async(req,res,next)=>{
-  console.log("cust");
   try{
   let address = req.body
-  console.log("try block");
   let userExist = await database.checkUser(address.email)
-  console.log(userExist);
   if(!userExist){
  let plan = plans.filter(item => item.planName == address.planName);
   req.session.address = address
@@ -335,20 +335,16 @@ router.post('/createCustomer',async(req,res,next)=>{
   }
   catch(error){
     console.log(error);
-    next()
+    next(error)
   }
 })
 
 router.post('/googleSheets',async(req,res,next)=>{
-  console.log(req.body);
 try{
 let userInfo = req.session.laterUser 
-console.log(req.body);
 let arr = Object.entries(req.body);
-console.log({arr});
 let newArray = [];
 arr.filter(items => newArray.push(items[1]));
-console.log({newArray});
 let Arr1 =[];
 
  if(Array.isArray(newArray[0])){
@@ -389,7 +385,7 @@ if(!proData)
 res.json(status) 
 // sending mail to victor
 let transporter = nodemailer.createTransport({
-  service:"Gmail", 
+  service:"Gmail",  
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
@@ -401,8 +397,8 @@ let transporter = nodemailer.createTransport({
 
 // send mail with defined transport object
 let tableUpdation = await transporterAdmin.sendMail({
-  from: '"Table Updation" <sai@charpstar.com>', // sender address
-  to: "saikrishnavs53@gmail.com", // list of receivers
+  from: '"Table Updation" <no-reply@charpstar.com>', // sender address
+  to: "admin@charpstar.com", // list of receivers
   subject: "CharpstAR Table Updation", // Subject line 
   text:`${userInfo.userEmail} has updated the details of the product`,
   // attachments:[{ path: `public/csvFiles/${fileName}.csv`}]
@@ -412,26 +408,26 @@ let tableUpdation = await transporterAdmin.sendMail({
 
 }
 catch(error){ 
-  next()  
+  console.log(error);
+  next(error)  
 }  
 })
 
 router.get("/ClientArea/login",userSession,async(req,res,next)=>{
   try{
-   console.log("SECOND TIME");
   let err = req.session.Error ? req.session.Error : false;
   res.render("userLogin",{err,otherPages:true,pageTitle:"User Login - "})
   
   req.session.Error = false; 
   }catch(error){
-    next()
+    console.log(error);
+    next(error)
   }
    
 }) 
  
 router.get('/clientArea',logoutSession,async(req,res,next)=>{
   try{
-          console.log("reached clientArea");
           let userEmail = req.session.loginEmail
           let dataArr = [] 
           let obj = {
@@ -441,7 +437,6 @@ router.get('/clientArea',logoutSession,async(req,res,next)=>{
           }
           let user = await database.GetSkus(userEmail);
           let name = user.userName
-          console.log({user});
           if(user.status == "complete"){
             dataArr = [...user.data.productTable]
           }else if(user.status == "incomplete"){
@@ -457,7 +452,8 @@ router.get('/clientArea',logoutSession,async(req,res,next)=>{
           res.render('clientArea',{dataArr,name,nav:true,foo:true,logout:true,otherPages:true,pageTitle:"Client Area - "})
         
   }catch(error){
-    next()
+    console.log(error);
+    next(error)
   }
 }) 
 
@@ -477,10 +473,8 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
       else if(userData.status){
         req.session.loginEmail = req.body.userEmail
         let user = await database.getUser(req.body.userEmail)
-        console.log(user);
         req.session.currentUser = user
         req.session.userLogin = true;
-        console.log("redirected to clientArea");
         res.redirect("/clientArea")
       }
       else{
@@ -490,25 +484,23 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 
       }
   }catch(error){
-    next()
+    console.log(error);
+    next(error)
   }
 })
 
 router.get('/subscriptionTrue',(req,res)=>{
-  console.log("status flag");
   req.session.subscription = true; 
   res.json(true)  
 })
  
 router.get('/success',client,checkLogout,async(req,res,next)=>{
-  console.log("success page");
   try{
     let userName = req.session.address.name
     let userEmail = req.session.address.email
     let planName = req.session.address.planName
     let flag = await database.checkUserPassExist(userEmail);
     if(flag){
-      console.log("flag true");
       let name = req.user
       let logout = req.Btn
       res.render('success',{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Success - "})
@@ -516,7 +508,6 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
       req.session.valid = false;
     }else{
     let userCreated = await database.createUser(req.session.address);
-    console.log({userCreated});
     if(userCreated){ 
     let chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let passwordLength = 12;
@@ -531,20 +522,20 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
     if(passwrdCreation){
       
     transporter.sendMail({
-        from:'sai@charpstar.com', 
+        from:'no-reply@charpstar.com', 
         to:userEmail,
-        subject:"CharpstAR 3D-AR",
+        subject:"Welcome to charpstAR",
         template:'emailOutput', 
         context:{
           email:userEmail,
-          userPassword:password
+          userPassword:password 
         }
   });
 
 // send mail with defined transport object
     transporterAdmin.sendMail({
-        from:'sai@charpstar.com', 
-        to:userEmail, 
+        from:'no-reply@charpstar.com', 
+        to:"admin@charpstar.com", 
         subject:"New Subscriber",
         text:`${userName} have been subscribed for ${planName} plan\nsubscribers Mail Id : ${userEmail}`
   });
@@ -563,7 +554,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
   }
   catch(err){
     console.log(err);
-    next()
+    next(err)
   }  
 })
 
@@ -577,13 +568,15 @@ router.get('/user/LogOut',(req,res,next)=>{
     if(URL == '/clientArea') res.redirect('/ClientArea/login');
     else res.redirect(URL)
   }catch(error){
+    console.log(error);
     next(error)
   }
   
-})   
-    
-router.get("/test",(req,res)=>{
-  res.render('emailOutput')
+})  
+ 
+router.get('/test',(req,res)=>{
+  res.render("emailOutput")
 })
+    
 module.exports = router;
  

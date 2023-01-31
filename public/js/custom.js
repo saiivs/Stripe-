@@ -114,11 +114,9 @@ $(document).ready(()=>{
     // ranging difference
     
      document.querySelector('#rangeInput').addEventListener("change",()=>{
-        console.log("mbile device");
        let quantity = document.getElementById('qnt').innerHTML;
        quantity = parseInt(quantity)
        if(quantity>0){
-        console.log("got in");
        let AnnualPrice = quantity * 7;
        let MonthlyPrice = quantity * 8; 
     
@@ -128,7 +126,7 @@ $(document).ready(()=>{
        document.getElementById('g').innerHTML = "$" + MonthlyPrice;
        document.getElementById('qntChange1').innerHTML = `/ month / ${quantity} products`
        document.getElementById('qntChange2').innerHTML = `/ month / ${quantity} products`
-       document.getElementById('qnt-Mob-1').innerHTML = `/ month / ${quantity} products`
+       document.getElementById('qnt-Mob-1').innerHTML = `/ month/ ${quantity} products`
        document.getElementById('qnt-Mob-2').innerHTML = `/ month / ${quantity} products`
        }
        else{
@@ -159,7 +157,6 @@ function subscription(id){
             quantity:qnt
         },
         success:(response)=>{
-          console.log(response);
            if(response.status) location.href = "/payment"
         }     
     })

@@ -3,6 +3,7 @@ $("#formTable").submit((e)=>{
     let tableArr = document.querySelectorAll('table tr');
     let newArr = [...tableArr]
     newArr.shift()
+    newArr.shift()
     let empty = 0;
     let error = false;
    for(let i =0; i<newArr.length; i++){

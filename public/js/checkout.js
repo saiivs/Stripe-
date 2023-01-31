@@ -35,15 +35,12 @@ document.addEventListener('DOMContentLoaded',async ()=>{
 
     
   addressElement.on('change', (event) => {
-    console.log(event);
     if(event.complete){
       checkAddressForm = true;
     }else{
       checkAddressForm = false;
     }
     if (event.complete && validateForm()){
-      console.log("all good");
-      console.log(document.getElementById("Submit_btn").disabled)
       address = event.value.address;
       address.email = document.getElementById("emailID").value;
       address.company = document.getElementById("companyID").value;
@@ -56,7 +53,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
   
   $("#address-form").submit((e)=>{
     e.preventDefault()
-    console.log("ajx");
     e.preventDefault();
     if(document.getElementById("Submit_btn").disabled != true){
         document.getElementById('address-form').hidden = true;
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                 location.href = "/contactUs"
               })
             }else{
-             console.log("client reached");
              subscriptionId = response.subscriptionId;
              clientSecret = response.clientSecret;
     
@@ -94,10 +89,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             paymentComplete = e.complete
           })
             }                                                                                                                                                             
-        
-        
-          // let Formheight2 = document.querySelector(".paymentMain");
-          // Formheight2.style.marginTop = "3rem"
           }
         })  
     }    
@@ -108,24 +99,21 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     let form = document.querySelector('#payment-form');
     form.addEventListener('submit',async (e)=>{
       e.preventDefault();
-      console.log("pay submited");
       if(paymentComplete){
         $.ajax({
             url:'/subscriptionTrue', 
             method:'get',
             success:(response)=>{
-              console.log(response);
             }
           })
           document.getElementById("afterPayBtn").innerHTML = "Do not press the back button. Wait for confirmation"
           
           await stripe.confirmPayment({
-            elements,
+            elements, 
             confirmParams:{
               return_url: `https://charpstar.co.uk/success`
             }
         }).then((result)=>{
-          console.log("finished");
             if(result.error){
               console.log(result.error)
             }

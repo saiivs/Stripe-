@@ -34,10 +34,17 @@ input:focus {
                 </tr>
                 </thead>
                 <tbody>
-                   {{#each dataArr}} 
+                   
+                   <tr >
+                    <td style="width: 5%" class = "idColumn">Ex:</td>
+                    <td style="width: 15%" ><input style="width: 100%" type="text" name="articleId" placeholder="9900062"  id="" readonly></td>
+                    <td style="width: 30%"><input style="width: 100%" type="text" name="productName" id="" placeholder="Generic Chair" readonly></td>
+                    <td style="width: 100%"><input style="width: 100%" type="text" name="productLink" id="" placeholder="https://yourwebsite.com/Generic_Chair/" readonly></td>
+                </tr>
+                {{#each dataArr}} 
                 <tr id="{{inc @index}}">
                     <td style="width: 5%" class = "idColumn">{{inc @index}}</td>
-                    <td style="width: 15%" ><input style="width: 100%" type="text" name="articleId"  id="" value="{{this.ArticleId}}"></td>
+                    <td style="width: 15%" ><input style="width: 100%" type="text" name="articleId" id="" value="{{this.ArticleId}}"></td>
                     <td style="width: 30%"><input style="width: 100%" type="text" name="productName" id="" value="{{this.ProductName}}"></td>
                     <td style="width: 100%"><input style="width: 100%" type="text" name="productLink" id="" value="{{this.ProductLink}}"></td>
                 </tr>

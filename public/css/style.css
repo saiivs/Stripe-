@@ -1112,7 +1112,7 @@ box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24
 }
 
 .custombtn{
-    margin-top: 9.6rem;
+    margin-top: 10rem;
     width: 100%; 
 }
 
@@ -3113,10 +3113,17 @@ td {
       left:0;
       z-index:1030
   }
+
+  @media only screen and (max-width: 3053px){
+    .custombtn{
+        margin-top: 10rem;
+    }
+  }
   
   @media only screen and (max-width: 1400px){
+
       .custombtn{
-          margin-top: 11.1rem;
+          margin-top: 11.4rem;
       }
   }
   @media only screen and (max-width: 1281px){
@@ -3125,7 +3132,7 @@ td {
       }
       .dis h5 {
           left: 7.4rem;
-          margin-top: 2.5rem;   
+          margin-top: 0.8rem;   
       }
       .custombtn{
           margin-top: 11.1rem;
@@ -3144,6 +3151,7 @@ td {
       }  
       .dis h5{
           left: 7.4rem;
+          margin-top: 2.8rem;   
       }
   }
   
@@ -3157,6 +3165,22 @@ td {
       .custombtn{    
           margin-top: 12.5rem;
       }
+  }
+
+  @media only screen and (max-width: 912px){
+
+    .dis {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dis h2{
+        text-align: inherit;
+    }
+
+    .dis h5 {
+        margin-top: 0rem;
+    }
   }
   
   @media only screen and (max-width: 992px){
@@ -3210,7 +3234,7 @@ td {
       }
       .dis h5 {
           left: 5.4rem;
-          margin-top: 2.5rem;
+          margin-top: 0rem;
       }
   }
   
@@ -3220,7 +3244,7 @@ td {
       }
       .dis h5 {
           left: 5.4rem;
-          margin-top: 3rem;
+          margin-top: 0rem;
       }
       .navbar-brand{
         margin-left: 1rem;
