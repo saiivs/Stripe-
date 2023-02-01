@@ -199,14 +199,14 @@ router.get("/termsCondition",client,checkLogout,(req,res,next)=>{
 
 router.post("/contactDetails",async(req,res,next)=>{
   try{
-    let {email,name} = req.body;
+    let {email,name,country,phone,businessName,role} = req.body;
 
   // send mail with defined transport object
-    let demo = await transporter.sendMail({
+    let demo = await transporterAdmin.sendMail({
       from: `"${name}" <no-reply@charpstar.com>`, // sender address
-      to: "admin@charpstar.com", // list of receivers
+      to: "emil@charpstar.com,victor@charpstar.com,arjun@charpstar.com", // list of receivers
       subject: "Demo Request", // Subject line 
-      text:`${email} has requested for a demo`,
+      text: `Name : ${name} \nEmail : ${email} \nCountry : ${country} \nPhone : ${phone} \nBusiness : ${businessName} \nRole : ${role}`,
 });
 
 if(demo){

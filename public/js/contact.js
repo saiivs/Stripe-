@@ -90,7 +90,7 @@ $("#contactInfo").submit((event)=>{
                 document.getElementById("succMsg").innerHTML = "Message sent successfully. We will get back to you soon!";
                 window.setTimeout(()=>{
                     document.getElementById("succMsg").innerHTML = "";
-                },2000)
+                },5000)
             }else{
 
             }

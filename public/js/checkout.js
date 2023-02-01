@@ -133,15 +133,19 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     let error = document.getElementById("Err_email");
     if(email == ""){
       error.innerHTML = "*Enter your email"
+      document.getElementById("companyLabel").style.top = "12.4rem"
       document.getElementById("Submit_btn").disabled = true;
       return false;
     }
     if(!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
       error.innerHTML = "*Invalid email";
+      document.getElementById("companyLabel").style.top = "12.4rem"
+      
       document.getElementById("Submit_btn").disabled = true;
       return false;
     }
     error.innerHTML = "";
+    document.getElementById("companyLabel").style.top = "10.9rem"
     document.getElementById("Submit_btn").disabled = false;
     return true;
   }
