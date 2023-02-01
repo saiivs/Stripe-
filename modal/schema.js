@@ -15,6 +15,9 @@ let productDetails = new schema({
     productTable:{
         type:Array,
         required:true
+    },
+    date:{
+     type:String,
     }
 })
 

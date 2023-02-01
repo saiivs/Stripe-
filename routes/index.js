@@ -342,6 +342,7 @@ router.post('/createCustomer',async(req,res,next)=>{
 router.post('/googleSheets',async(req,res,next)=>{
 try{
 let userInfo = req.session.laterUser 
+let user = await database.getUser(userInfo.userEmail);
 let arr = Object.entries(req.body);
 let newArray = [];
 arr.filter(items => newArray.push(items[1]));
@@ -375,7 +376,50 @@ let Arr1 =[];
   Arr1.push(obj)
  }
 
+ // sending mail to victor
+// send mail with defined transport object
+
+let sendMailAdmin = (email)=>{
+  transporterAdmin.sendMail({
+     from: '"CharpstAR" <no-reply@charpstar.com>', // sender address
+     to: "victor@charpstar.com", // list of receivers
+     subject: "CharpstAR Table Update", // Subject line 
+     text:`${user.userName} - ${user.company} has updated the details`,
+     // attachments:[{ path: `public/csvFiles/${fileName}.csv`}]
+});
+
+ }
+
+ let dateFromater = (date)=>{
+  date = new Date(date)
+  let myDate = `${date.getUTCMonth() + 1}/${date.getUTCDate()}/${date.getUTCFullYear()}`
+  return myDate
+ }
+ 
+
 let userEmail = userInfo.userEmail
+let date = await database.getUpdatedTime(userEmail);
+if(!date){
+  sendMailAdmin(userEmail)
+}else{
+  
+  let myDate = new Date(dateFromater(date)).getTime();
+    let currDate = new Date();
+    currDate = dateFromater(currDate)
+    currDate = new Date(currDate).getTime();
+    if(myDate < currDate){
+      sendMailAdmin(userEmail)
+    }else{
+      date = new Date(date)
+      let hrs = date.getHours() + 1;
+      let currDate = new Date();
+      let curHrs = currDate.getHours()
+      if(hrs <= curHrs){
+        sendMailAdmin(userEmail)
+      }
+    } 
+}
+Arr1.shift()   
 let proData = await database.productDetails(Arr1,userEmail);
 let status = true
 if(!proData)
@@ -383,29 +427,6 @@ if(!proData)
   status = false
 }
 res.json(status) 
-// sending mail to victor
-let transporter = nodemailer.createTransport({
-  service:"Gmail",  
-  port: 587,
-  secure: false, // true for 465, false for other ports
-  auth: {
-      user: process.env.EMAIL_ID,
-      pass: process.env.PASSWORD,   
-  },
-  tls:{rejectUnauthorized:false}
-});
-
-// send mail with defined transport object
-let tableUpdation = await transporterAdmin.sendMail({
-  from: '"Table Updation" <no-reply@charpstar.com>', // sender address
-  to: "admin@charpstar.com", // list of receivers
-  subject: "CharpstAR Table Updation", // Subject line 
-  text:`${userInfo.userEmail} has updated the details of the product`,
-  // attachments:[{ path: `public/csvFiles/${fileName}.csv`}]
-});
-// console.log("Message sent: %s", info.messageId);
-// Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
 }
 catch(error){ 
   console.log(error);
@@ -499,6 +520,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
     let userName = req.session.address.name
     let userEmail = req.session.address.email
     let planName = req.session.address.planName
+    let company = req.session.address.company
     let flag = await database.checkUserPassExist(userEmail);
     if(flag){
       let name = req.user
@@ -522,7 +544,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
     if(passwrdCreation){
       
     transporter.sendMail({
-        from:'no-reply@charpstar.com', 
+        from:'"CharpstAR" <no-reply@charpstar.com>', 
         to:userEmail,
         subject:"Welcome to charpstAR",
         template:'emailOutput', 
@@ -534,10 +556,10 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
 
 // send mail with defined transport object
     transporterAdmin.sendMail({
-        from:'no-reply@charpstar.com', 
-        to:"admin@charpstar.com", 
+        from:'"CharpstAR" <no-reply@charpstar.com>', 
+        to:"emil@charpstar.com,arjun@charpstar.com,victor@charpstar.com", 
         subject:"New Subscriber",
-        text:`${userName} have been subscribed for ${planName} plan\nsubscribers Mail Id : ${userEmail}`
+        text:`${userName} have been subscribed for ${planName} plan\nsubscribers Mail Id : ${userEmail}\nBusiness : ${company}`
   });
   // victor mail ends//
 
