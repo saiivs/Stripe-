@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
           await stripe.confirmPayment({
             elements, 
             confirmParams:{
-              return_url: `https://charpstar.co.uk/success`
+              return_url: `http://charpstar.co.uk/success`
             }
         }).then((result)=>{
             if(result.error){
