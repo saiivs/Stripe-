@@ -51,6 +51,7 @@ $(document).ready(()=>{
           range.on('input', function(){
             if(this.value == 0 ){
               $(this).next(value).html(parseInt(this.value) + 1);
+              
             }else{
               $(this).next(value).html(this.value);
             } 
@@ -70,7 +71,7 @@ $(document).ready(()=>{
             let dynHeight = document.querySelector('#h-tab3').offsetHeight;
             document.getElementById('h-tab1').style.height = dynHeight;
 
-            document.querySelector('#rangeInput').addEventListener("change",()=>{
+            document.querySelector('#rangeInput').addEventListener("input",()=>{
                let quantity = document.getElementById('qnt').innerHTML;
                quantity = parseInt(quantity)
                if(quantity>0){
@@ -113,7 +114,7 @@ $(document).ready(()=>{
 
     // ranging difference
     
-     document.querySelector('#rangeInput').addEventListener("change",()=>{
+     document.querySelector('#rangeInput').addEventListener("input",()=>{
        let quantity = document.getElementById('qnt').innerHTML;
        quantity = parseInt(quantity)
        if(quantity>0){
@@ -124,6 +125,7 @@ $(document).ready(()=>{
        document.getElementById('M-p').innerHTML = "$" + MonthlyPrice;
        document.getElementById('z').innerHTML = "$" + AnnualPrice;
        document.getElementById('g').innerHTML = "$" + MonthlyPrice;
+       if(quantity == 1) quantity = ""
        document.getElementById('qntChange1').innerHTML = `/ month / ${quantity} products`
        document.getElementById('qntChange2').innerHTML = `/ month / ${quantity} products`
        document.getElementById('qnt-Mob-1').innerHTML = `/ month/ ${quantity} products`
