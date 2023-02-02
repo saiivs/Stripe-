@@ -1,5 +1,11 @@
-
+window.addEventListener("pageshow", function ( event ) {   
+  if(performance.navigation.type == 2){
+    location.reload(true);
+ }
+ 
+});
 $(document).ready(()=>{ 
+ 
   if(document.getElementById("Faq").innerHTML == "faq"  ) {
     document.getElementById("faqArea").scrollIntoView()
   }
@@ -14,11 +20,7 @@ $(document).ready(()=>{
         },400)
     },400)
 
-    window.addEventListener( "pageshow", function ( event ) {
-  if(performance.navigation.type == 2){
-    location.reload(true);
- }
-});
+   
    
     let dynHeight = document.querySelector('#h-tab3').offsetHeight;
     document.getElementById('h-tab1').style.height = dynHeight;
