@@ -518,13 +518,20 @@ router.get('/subscriptionTrue',(req,res)=>{
 
 router.get('/subscriptionFalse',(req,res)=>{
   req.session.subscription = false; 
+  req.session.successPageEntry = false; 
+  res.json(true)  
+})
+
+router.get('/successPageEntry',(req,res)=>{
+  req.session.successPageEntry = true; 
   res.json(true)  
 })
  
 router.get('/success',client,checkLogout,async(req,res,next)=>{
   try{
+    if(req.session.successPageEntry){
     let userName = req.session.address.name
-    let userEmail = req.session.address.email
+    let userEmail = req.session.address.email 
     let planName = req.session.address.planName
     let company = req.session.address.company
     let flag = await database.checkUserPassExist(userEmail);
@@ -578,6 +585,10 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
     } 
 
     }
+    }else{
+      throw new Error
+    }
+    
 
   }
   catch(err){

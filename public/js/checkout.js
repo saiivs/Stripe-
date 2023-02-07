@@ -105,7 +105,12 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     form.addEventListener('submit',async (e)=>{
       e.preventDefault();
       if(paymentComplete){
-       
+        $.ajax({
+          url:'/successPageEntry', 
+          method:'get',
+          success:(response)=>{
+          }
+        })
           document.getElementById("afterPayBtn").innerHTML = "Do not press the back button. Wait for confirmation"
           
           await stripe.confirmPayment({
@@ -124,8 +129,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                   });
                 }
               })
-              console.log("error detected");
-              console.log(result.error)
             }else{
               $.ajax({
                 url:'/subscriptionTrue', 
