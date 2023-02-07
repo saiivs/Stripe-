@@ -1,5 +1,10 @@
-let checkAddressForm = false;
+window.addEventListener("pageshow", function ( event ) {   
+  if(performance.navigation.type == 2){
+    location.reload(true);
+ }
+});
 
+let checkAddressForm = false;
 document.addEventListener('DOMContentLoaded',async ()=>{
   
     const {public_key} = await fetch("/public_key").then(r => r.json());
@@ -100,12 +105,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     form.addEventListener('submit',async (e)=>{
       e.preventDefault();
       if(paymentComplete){
-        $.ajax({
-            url:'/subscriptionTrue', 
-            method:'get',
-            success:(response)=>{
-            }
-          })
+       
           document.getElementById("afterPayBtn").innerHTML = "Do not press the back button. Wait for confirmation"
           
           await stripe.confirmPayment({
@@ -119,14 +119,20 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                 url:'/subscriptionFalse', 
                 method:'get',
                 success:(response)=>{
-                  if(response) swal("Payment declined").then(()=>{
+                  if(response) swal("Payment canceled").then(()=>{
                     document.getElementById("afterPayBtn").innerHTML = ""
                   });
                 }
               })
-              
               console.log("error detected");
               console.log(result.error)
+            }else{
+              $.ajax({
+                url:'/subscriptionTrue', 
+                method:'get',
+                success:(response)=>{
+                }
+              })
             }
         })
       }else{
@@ -178,7 +184,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
   // address form button validation//
   function validateForm(){
     let error = document.getElementById("Submit_err");
-    console.log("clicked");
     if(validateEmail() && checkAddressForm && validateCompany()){
       error.innerHTML = ""
       document.getElementById("Submit_btn").disabled = false;
