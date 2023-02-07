@@ -167,7 +167,7 @@ router.get("/businessCases",client,checkLogout,(req,res,next)=>{
 
 router.get("/contactUs",client,checkLogout,(req,res,next)=>{
   try{
-    let name = req.user;
+    let name = req.user; 
     let logout = req.Btn
     res.render('contact_us',{name,nav:true,foo:true,active1:false,active2:false,active3:false,active4:true,logout,otherPages:true,pageTitle:"Contact Us - "});
   }catch(error){
@@ -204,7 +204,7 @@ router.post("/contactDetails",async(req,res,next)=>{
   // send mail with defined transport object
     let demo = await transporterAdmin.sendMail({
       from: `"${name}" <no-reply@charpstar.com>`, // sender address
-      to: "emil@charpstar.com,victor@charpstar.com,arjun@charpstar.com", // list of receivers
+      to: "emil@charpstar.com,arjun@charpstar.com,victor@charpstar.com", // list of receivers
       subject: "Demo Request", // Subject line 
       text: `Name : ${name} \nEmail : ${email} \nCountry : ${country} \nPhone : ${phone} \nBusiness : ${businessName} \nRole : ${role}`,
 });
@@ -285,7 +285,7 @@ router.post('/createCustomer',async(req,res,next)=>{
   req.session.skus = address.skus
   let checkCustomer = await stripe.customers.search({
     query: `email:\'${address.email}\'`,
-  })
+  }) 
   if(checkCustomer.data[0]){
     req.session.customer_id = checkCustomer.data[0].id;
   }else{
@@ -582,7 +582,7 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
 
 router.get('/user/LogOut',(req,res,next)=>{
   try{
-    req.session.userLogin = false;
+    req.session.userLogin = false; 
     req.session.currentUser = false;
     let urlFrom = req.headers.referer; 
     let URL = url.parse(urlFrom,true); 

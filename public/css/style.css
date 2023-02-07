@@ -3037,6 +3037,15 @@ td {
    .viewBtn:hover{
       color: black;
    }
+   .CancelBtn{
+      background-color: #ff3636;
+      color: white;
+      width: 5rem;
+      cursor: context-menu;
+   }
+   .CancelBtn:hover{
+      color: black;
+   }
   
    #logOutbtn{
       justify-content: end;

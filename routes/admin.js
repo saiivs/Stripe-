@@ -91,6 +91,17 @@ router.get("/product/Get/:email",afterLogOut,async(req,res,next)=>{
   }
 })
 
+router.get('/cancelSubscription/:id',async(req,res)=>{
+  try{
+  let userId = req.params.id;
+  await database.cancelSub(userId);
+  res.json()
+  }catch(error){
+    next(error)
+  }
+  
+})
+
 router.get("/LogOut",(req,res)=>{
   try{
     req.session.adminLogin = false

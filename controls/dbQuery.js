@@ -1,5 +1,7 @@
 
 const db = require('../modal/schema')
+const {ObjectId} = require("mongodb")
+
 
 module.exports = {
     productDetails:async(data,email)=>{
@@ -47,7 +49,8 @@ module.exports = {
                     userEmail:userData.email,
                     company:userData.company,
                     planName:userData.planName,
-                    skus:userData.skus
+                    skus:userData.skus,
+                    subscription:true
                 }
         let data = new db.users(user)
         return data.save().then((data)=>{
@@ -201,5 +204,10 @@ module.exports = {
         }else{
             return false;
         }
-    } 
+    },
+
+    cancelSub:async(userId)=>{
+       let a = await db.users.updateOne({_id:new ObjectId(userId)},{$set:{subscription:false}});
+        return
+    }
 }

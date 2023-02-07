@@ -56,6 +56,10 @@ let user = new schema({
      type:String,
      require:true,
      default:"Incomplete"
+   },
+   subscription:{
+     type:Boolean,
+     required:true
    }
 })
 
