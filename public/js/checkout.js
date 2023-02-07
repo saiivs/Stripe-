@@ -115,6 +115,17 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             }
         }).then((result)=>{
             if(result.error){
+              $.ajax({
+                url:'/subscriptionFalse', 
+                method:'get',
+                success:(response)=>{
+                  if(response) swal("Payment declined").then(()=>{
+                    document.getElementById("afterPayBtn").innerHTML = ""
+                  });
+                }
+              })
+              
+              console.log("error detected");
               console.log(result.error)
             }
         })

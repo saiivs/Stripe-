@@ -243,7 +243,7 @@ router.get('/payment',client,checkLogout,(req,res,next)=>{
       let price = plan.amount;
       let duration = "month"
       price = quantity * price;
-      if(plan.planName == "Annual Plan"){ 
+      if(plan.planName == "Annual Subscription"){ 
         price = price * 12
         duration = "year"
       }
@@ -323,6 +323,7 @@ router.post('/createCustomer',async(req,res,next)=>{
   });
   if(!subscription) throw new Error("Something went wrong! Server is not responding")
   console.log("completed");
+  console.log(subscription);
   
   res.send({
     subscriptionId: subscription.id,
@@ -512,6 +513,11 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 
 router.get('/subscriptionTrue',(req,res)=>{
   req.session.subscription = true; 
+  res.json(true)  
+})
+
+router.get('/subscriptionFalse',(req,res)=>{
+  req.session.subscription = false; 
   res.json(true)  
 })
  
