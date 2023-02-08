@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                 method:'get',
                 success:(response)=>{
                   if(response) swal("Payment canceled").then(()=>{
+                    document.getElementById("popUpLoader").hidden = true;
                     document.getElementById("afterPayBtn").innerHTML = ""
                   });
                 }
