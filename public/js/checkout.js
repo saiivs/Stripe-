@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     form.addEventListener('submit',async (e)=>{
       e.preventDefault();
       if(paymentComplete){
+        document.getElementById("popUpLoader").hidden = false;
         $.ajax({
           url:'/successPageEntry', 
           method:'get',

@@ -2355,6 +2355,13 @@ header .overlay {
     display: flex;
     justify-content: center;
   }
+  .loaderContainer_popup{
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 14%);
+    background-color: #dbdbdb;
+  }
   
   .lds-facebook {
     display: inline-block;
