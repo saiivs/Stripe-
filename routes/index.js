@@ -448,7 +448,7 @@ router.get("/ClientArea/login",checkSubscription,userSession,async(req,res,next)
    
 }) 
  
-router.get('/clientArea',logoutSession,async(req,res,next)=>{
+router.get('/clientArea',checkSubscription,logoutSession,async(req,res,next)=>{
   try{
           let userEmail = req.session.loginEmail
           let dataArr = [] 
@@ -557,7 +557,7 @@ router.get('/subscriptionFalse',(req,res)=>{
   res.json(true)  
 })
 
-router.get('/231543',async(req,res)=>{
+router.get('/231543',(req,res)=>{
   req.session.successPageEntry = true;  
   res.json(true)  
 })
@@ -565,6 +565,7 @@ router.get('/231543',async(req,res)=>{
 router.get('/success',client,checkLogout,async(req,res,next)=>{
   try{
     if(req.session.successPageEntry){
+    req.session.subscription=true;
     let userName = req.session.address.name
     let userEmail = req.session.address.email 
     let planName = req.session.address.planName 
@@ -588,7 +589,6 @@ router.get('/success',client,checkLogout,async(req,res,next)=>{
       password += chars.substring(randomNumber, randomNumber +1);
     } 
     let passwrdCreation = await database.appendPassword(password,userEmail); 
-    
     if(passwrdCreation){
       
     transporter.sendMail({
