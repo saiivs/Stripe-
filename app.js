@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-const bodyParser = require("body-parser")
+
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -37,14 +37,6 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use((req, res, next) => {
   if (req.originalUrl === '/webhook') {
-    app.use(bodyParser.json({
-      verify: function (req, res, buf) {
-        var url = req.originalUrl;
-        if (url.startsWith('/stripe')) {
-           req.rawBody = buf.toString();
-        }
-      }
-    }))
     next(); // Do nothing with the body because I need it in a raw state.
   } else {
     express.json()(req, res, next);  // ONLY do express.json() if the received request is NOT a WebHook from Stripe.
