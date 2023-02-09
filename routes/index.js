@@ -534,6 +534,13 @@ router.post('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
       req.session.subscription = true; 
       break;
     // ... handle other event types
+    case 'payment_intent.payment_failed':
+      const paymentIntentPaymentFailed = event.data.object;
+      console.log("payment failed");
+      console.log(paymentIntentPaymentFailed);
+      req.session.subscription = false; 
+      // Then define and call a function to handle the event payment_intent.payment_failed
+      break;
     default:
       console.log(`Unhandled event type ${event.type}`);
   }
