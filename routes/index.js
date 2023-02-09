@@ -516,14 +516,14 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.post('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
+router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>{
   console.log("hit");
   const endpointSecret = process.env.SIGNATURE_SECRET
   const sig = req.headers['stripe-signature'];
 
   let event;
 
-  event = await stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
+  event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
 
   switch (event.type) {
     case 'payment_intent.succeeded':
