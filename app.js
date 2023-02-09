@@ -34,13 +34,14 @@ app.set('view engine', 'hbs');
 
 
 app.use(logger('dev'));
-app.use((req, res, next) => {
-  if (req.originalUrl === '/webhook') {
-    next(); // Do nothing with the body because I need it in a raw state.
-  } else {
-    express.json()(req, res, next);  // ONLY do express.json() if the received request is NOT a WebHook from Stripe.
+app.use(bodyParser.json({
+  verify: function (req, res, buf) {
+    var url = req.originalUrl;
+    if (url.startsWith('/stripe')) {
+       req.rawBody = buf.toString();
+    }
   }
-});
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

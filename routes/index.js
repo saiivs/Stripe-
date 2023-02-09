@@ -516,7 +516,7 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>{
+router.post('/webhook', bodyParser.raw({type: 'application/json'}),async(req,res)=>{
   console.log("hit");
   console.log(req.rawBody);
   const endpointSecret = process.env.SIGNATURE_SECRET
