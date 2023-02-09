@@ -516,7 +516,7 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.get('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
+router.post('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
   console.log("hit");
   const endpointSecret = "whsec_MaMbXzZOOcW16gFelKInWukPIelgmT7z"
   const sig = req.headers['stripe-signature'];
