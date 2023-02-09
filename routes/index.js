@@ -538,6 +538,7 @@ router.post('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
       const paymentIntentPaymentFailed = event.data.object;
       console.log("payment failed");
       console.log(paymentIntentPaymentFailed);
+      req.session.successPageEntry = false; 
       req.session.subscription = false; 
       // Then define and call a function to handle the event payment_intent.payment_failed
       break;
