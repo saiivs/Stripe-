@@ -31,17 +31,12 @@ hbs.handlebars.registerHelper('inc', function(value, options)
 require("./connection/database")
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'hbs'); 
 
 
 app.use(logger('dev'));
 app.use((req, res, next) => {
   if (req.originalUrl === '/webhook') {
-    express.json({
-      verify: (req, res, buf) => {
-        req.rawBody = buf.toString();
-      }
-    })
     next(); // Do nothing with the body because I need it in a raw state.
   } else {
     express.json()(req, res, next);  // ONLY do express.json() if the received request is NOT a WebHook from Stripe.
