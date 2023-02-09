@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
 
     let address;
     let clientSecret = "";
+    let subscriptionId = "";
     let elements = "";
     let paymentElement = "";
     let paymentComplete = false
@@ -106,8 +107,9 @@ document.addEventListener('DOMContentLoaded',async ()=>{
       e.preventDefault();
       if(paymentComplete){
         document.getElementById("popUpLoader").hidden = false;
+        
         $.ajax({
-          url:'/successPageEntry', 
+          url:'/231543', 
           method:'get',
           success:(response)=>{
           }
@@ -120,6 +122,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
               return_url: `https://charpstar.co/success`
             }
         }).then((result)=>{
+          console.log();
             if(result.error){
               $.ajax({
                 url:'/subscriptionFalse', 
@@ -129,11 +132,11 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                     document.getElementById("popUpLoader").hidden = true;
                     document.getElementById("afterPayBtn").innerHTML = ""
                   });
-                }
+                } 
               })
             }else{
               $.ajax({
-                url:'/subscriptionTrue', 
+                url:'/78906', 
                 method:'get',
                 success:(response)=>{
                 }

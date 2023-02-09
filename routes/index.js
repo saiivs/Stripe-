@@ -68,6 +68,7 @@ function checkSubscription(req,res,next){
   if(req.session.subscription){
     res.redirect("/success")
   }else{
+    req.session.successPageEntry = false;
     next()
   }
 }
@@ -119,7 +120,7 @@ const plans =[
   }
 ]
 
-router.get("/",client,checkLogout,(req,res,next)=>{
+router.get("/",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name =req.user
     let logout = req.Btn
@@ -155,7 +156,7 @@ router.get('/pricingFaq',client,checkLogout,(req,res,next)=>{
   }
 })
 
-router.get("/businessCases",client,checkLogout,(req,res,next)=>{
+router.get("/businessCases",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user
     let logout = req.Btn
@@ -165,7 +166,7 @@ router.get("/businessCases",client,checkLogout,(req,res,next)=>{
   }
 })
 
-router.get("/contactUs",client,checkLogout,(req,res,next)=>{
+router.get("/contactUs",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user; 
     let logout = req.Btn
@@ -175,7 +176,7 @@ router.get("/contactUs",client,checkLogout,(req,res,next)=>{
   }
 })
 
-router.get("/policy",client,checkLogout,(req,res,next)=>{
+router.get("/policy",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
   let name = req.user
   let logout = req.Btn
@@ -186,7 +187,7 @@ router.get("/policy",client,checkLogout,(req,res,next)=>{
  
 })
 
-router.get("/termsCondition",client,checkLogout,(req,res,next)=>{
+router.get("/termsCondition",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user;
     let logout = req.Btn
@@ -235,7 +236,7 @@ router.post('/plan/Get',(req,res,next)=>{
   } 
 })
 
-router.get('/payment',client,checkLogout,(req,res,next)=>{
+router.get('/payment',checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let plan = req.session.planData;
     if(req.session.valid){
@@ -322,9 +323,8 @@ router.post('/createCustomer',async(req,res,next)=>{
     idempotencyKey: uuidv4()
   });
   if(!subscription) throw new Error("Something went wrong! Server is not responding")
-  console.log("completed");
-  console.log(subscription);
-  
+  console.log("Subscription created");
+  req.session.subscriptionId = subscription.id
   res.send({
     subscriptionId: subscription.id,
     clientSecret: subscription.latest_invoice.payment_intent.client_secret,
@@ -435,7 +435,7 @@ catch(error){
 }  
 })
 
-router.get("/ClientArea/login",userSession,async(req,res,next)=>{
+router.get("/ClientArea/login",checkSubscription,userSession,async(req,res,next)=>{
   try{
   let err = req.session.Error ? req.session.Error : false;
   res.render("userLogin",{err,otherPages:true,pageTitle:"User Login - "})
@@ -511,28 +511,52 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
   }
 })
 
-router.get('/subscriptionTrue',(req,res)=>{
-  req.session.subscription = true; 
-  res.json(true)  
+// router.get('/78906',(req,res)=>{
+//   req.session.subscription = true; 
+//   res.json(true)  
+// })
+
+router.get('/webhook',express.raw({type: 'application/json'}),async(req,res)=>{
+  console.log("hit");
+  const endpointSecret = "whsec_MaMbXzZOOcW16gFelKInWukPIelgmT7z"
+  const sig = req.headers['stripe-signature'];
+
+  let event;
+
+  event =await stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+
+  switch (event.type) {
+    case 'payment_intent.succeeded':
+      const paymentIntentSucceeded = event.data.object;
+      // Then define and call a function to handle the event payment_intent.succeeded
+      console.log("payment succeeded");
+      console.log(paymentIntentSucceeded);
+      req.session.subscription = true; 
+      break;
+    // ... handle other event types
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+  res.json()
 })
 
 router.get('/subscriptionFalse',(req,res)=>{
-  req.session.subscription = false; 
+  req.session.subscription = false;  
   req.session.successPageEntry = false; 
   res.json(true)  
 })
 
-router.get('/successPageEntry',(req,res)=>{
-  req.session.successPageEntry = true; 
+router.get('/231543',async(req,res)=>{
+  req.session.successPageEntry = true;  
   res.json(true)  
 })
- 
+
 router.get('/success',client,checkLogout,async(req,res,next)=>{
   try{
     if(req.session.successPageEntry){
     let userName = req.session.address.name
     let userEmail = req.session.address.email 
-    let planName = req.session.address.planName
+    let planName = req.session.address.planName 
     let company = req.session.address.company
     let flag = await database.checkUserPassExist(userEmail);
     if(flag){
