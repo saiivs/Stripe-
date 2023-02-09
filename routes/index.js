@@ -1,6 +1,5 @@
 
 let express = require('express');
-const bodyParser = require('body-parser')
 let router = express.Router();
 var path = require('path');
 require('dotenv').config()
@@ -517,7 +516,7 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.post('/webhook', bodyParser.raw({type: 'application/json'}),async(req,res)=>{
+router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>{
   console.log("hit");
   console.log(req.body);
   let payload =req.body
@@ -527,13 +526,7 @@ router.post('/webhook', bodyParser.raw({type: 'application/json'}),async(req,res
 
   let event;
 
-  try{
-    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
-  }catch(error){
-    console.log(error.message);
-    res.status()
-  }
- 
+  event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
 
   switch (event.type) {
     case 'payment_intent.succeeded':
