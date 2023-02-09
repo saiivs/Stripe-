@@ -1,5 +1,6 @@
 
 let express = require('express');
+const bodyParser = require('body-parser')
 let router = express.Router();
 var path = require('path');
 require('dotenv').config()
@@ -516,16 +517,23 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>{
+router.post('/webhook', bodyParser.raw({type: 'application/json'}),async(req,res)=>{
   console.log("hit");
   console.log(req.body);
+  let payload =req.body
   const endpointSecret = process.env.SIGNATURE_SECRET
   const sig = req.headers['stripe-signature'];
   console.log(sig);
 
   let event;
 
-  event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+  try{
+    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+  }catch(error){
+    console.log(error.message);
+    res.status()
+  }
+ 
 
   switch (event.type) {
     case 'payment_intent.succeeded':
