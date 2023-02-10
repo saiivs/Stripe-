@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
       e.preventDefault();
       if(paymentComplete){
         document.getElementById("popUpLoader").hidden = false;
+        document.getElementById("submit").disabled  = true;
         
         $.ajax({
           url:'/231543', 
@@ -130,6 +131,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
                 method:'get',
                 success:(response)=>{
                   if(response) swal("Payment canceled").then(()=>{
+                    document.getElementById("submit").disabled  = false;
                     document.getElementById("popUpLoader").hidden = true;
                     document.getElementById("afterPayBtn").innerHTML = ""
                   });
