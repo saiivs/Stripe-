@@ -516,13 +516,12 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
 //   res.json(true)  
 // })
 
-router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>{
-  console.log("hit");
-  console.log(req.body);
+router.post('/webhook_Succ', express.raw({type: 'application/json'}),async(req,res)=>{
+  
   let payload =req.body
-  const endpointSecret = process.env.SIGNATURE_SECRET
+  const endpointSecret = process.env.SIGNATURE_SECRET_SUCC
   const sig = req.headers['stripe-signature'];
-  console.log(sig);
+  
 
   let event;
 
@@ -537,6 +536,28 @@ router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>
       req.session.subscription = true; 
       break;
     // ... handle other event types
+  
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+  res.json()
+})
+router.post('/webhook_Fail', express.raw({type: 'application/json'}),async(req,res)=>{
+  
+  let payload =req.body
+  const endpointSecret = process.env.SIGNATURE_SECRET_FAIL
+  const sig = req.headers['stripe-signature'];
+  
+
+  let event;
+  try {
+     event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+  } catch (error) {
+    res.status(400).send(`Webhook Error: ${error.message}`);
+    return;
+  }
+
+  switch (event.type) {
     case 'payment_intent.payment_failed':
       const paymentIntentPaymentFailed = event.data.object;
       console.log("payment failed");
@@ -545,6 +566,7 @@ router.post('/webhook', express.raw({type: 'application/json'}),async(req,res)=>
       req.session.subscription = false; 
       // Then define and call a function to handle the event payment_intent.payment_failed
       break;
+  
     default:
       console.log(`Unhandled event type ${event.type}`);
   }

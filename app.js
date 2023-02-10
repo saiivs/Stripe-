@@ -36,7 +36,7 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use((req, res, next) => {
-  if (req.originalUrl === '/webhook') {
+  if (req.originalUrl === '/webhook_Fail' || req.originalUrl === '/webhook_Succ') {
     console.log("stripe req");
     next(); // Do nothing with the body because I need it in a raw state.
   } else {
