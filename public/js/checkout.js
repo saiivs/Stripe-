@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         }).then((result)=>{
           console.log();
             if(result.error){
+              console.log(result.error);
               $.ajax({
                 url:'/subscriptionFalse', 
                 method:'get',
