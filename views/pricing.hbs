@@ -525,8 +525,11 @@ td {
 
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
             spaceBetween: 30,
+            centeredSlides:true,
+            grabCursor:true,
+            loop: false,
             pagination: {
             el: ".swiper-pagination",
             clickable: true,
