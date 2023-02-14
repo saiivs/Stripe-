@@ -90,19 +90,16 @@ $(document).ready(()=>{
    
          }else{
             let swiper = new Swiper(".mySwiper", {
-                slidesPerView: 'auto',
-                spaceBetween: 30,
-                centeredSlides:true,
-                grabCursor:true,
-                loop: false,
-                pagination: {
-                  el: ".swiper-pagination",
-                  clickable: true,
-                },
-                navigation: {
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                },
+              slidesPerView: 1,
+              spaceBetween: 30,
+              pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              },
+              navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+              },
               });
              document.getElementById('swiperVisibility').hidden = false;
              document.getElementById('h-tab1').hidden = true
