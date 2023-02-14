@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 const errorHandler = require('./middleware/Error')
 
+const fileUpload = require('express-fileupload')
+
 var app = express();
 var session=require('express-session')
 const hbs = require("hbs");
@@ -47,6 +49,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload())
 app.use((req,res,next)=>{
   if(!req.user){
     res.header('cache-control','private,no-cache,no-store,must ravalidate')

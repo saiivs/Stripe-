@@ -130,7 +130,7 @@ $(document).ready(()=>{
        if(quantity == 1) quantity = ""
        document.getElementById('qntChange1').innerHTML = `/ month / ${quantity} products`
        document.getElementById('qntChange2').innerHTML = `/ month / ${quantity} products`
-       document.getElementById('qnt-Mob-1').innerHTML = `/ month/ ${quantity} products`
+       document.getElementById('qnt-Mob-1').innerHTML = `/ month / ${quantity} products`
        document.getElementById('qnt-Mob-2').innerHTML = `/ month / ${quantity} products`
        }
        else{

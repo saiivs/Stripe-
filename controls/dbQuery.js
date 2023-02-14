@@ -209,5 +209,25 @@ module.exports = {
     cancelSub:async(userId)=>{
        let a = await db.users.updateOne({_id:new ObjectId(userId)},{$set:{subscription:false}});
         return
+    },
+
+    CreateBlog:async(data,imageName)=>{
+        let titleText = data.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+        let blogContent = {
+            title:titleText,
+            content:data.textArea,
+            image:imageName
+        }
+
+        let blog = new db.blogs(blogContent);
+        let response = await blog.save()
+        return response
+    },
+
+    getBlogs:async(titleText)=>{
+        titleText = titleText.split("-").join(" ");
+        let data = await db.blogs.find({title:titleText});
+        console.log(data[0]);
+        if(data) return data
     }
 }

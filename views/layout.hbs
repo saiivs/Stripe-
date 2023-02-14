@@ -114,10 +114,18 @@ height: calc(100% - 8px)
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    {{/if}}
-  
-</head>
+    
+    {{else}}
+    <!-- Blog -->
+    <link rel="icon" href="/images/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 
+    {{/if}}
+
+</head>
 
 <body>
     {{#if nav}}
@@ -176,13 +184,13 @@ height: calc(100% - 8px)
                             </a>
                         </li>
                         <li class="nav-item {{#if active3}}active{{/if}}">
-                            <a class="nav-link" href="/businessCases">Business Cases</a>
+                            <a class="nav-link" href="/business-cases">Business Cases</a>
                         </li>
                         <li class="nav-item {{#if active4}}active{{/if}}">
-                            <a class="nav-link" href="/contactUs">Contact Us</a>
+                            <a class="nav-link" href="/contact-us">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ClientArea/login">{{name}}</a>
+                            <a class="nav-link" href="/client-area/login">{{name}}</a>
                         </li>
                         {{#if logout}}
                         <li class="nav-item btn-on-nav">
@@ -190,7 +198,7 @@ height: calc(100% - 8px)
                         </li>
                         {{else}}
                         <li class="nav-item btn-on-nav">
-                            <a class="nav-link" href="/contactUs">Book a demo</a>
+                            <a class="nav-link" href="/contact-us">Book a demo</a>
                         </li>
                         {{/if}}
                         
@@ -240,15 +248,15 @@ height: calc(100% - 8px)
                         </a>
                     </li>
                     <li class="nav-item {{#if active3}}active{{/if}}">
-                        <a href="/businessCases" class="nav-link closebtn" href="/businessCases"
+                        <a href="/business-cases" class="nav-link closebtn" href="/business-cases"
                             onclick="closeNav()">Business Cases</a>
                     </li>
                     <li class="nav-item {{#if active4}}active{{/if}}">
-                        <a href="/contactUs" class="nav-link closebtn" href="/contactUs"
+                        <a href="/contact-us" class="nav-link closebtn" href="/contact-us"
                             onclick="closeNav()">Contact Us</a>
                     </li>
                      <li class="nav-item">
-                            <a class="nav-link" href="/ClientArea/login">{{name}}</a>
+                            <a class="nav-link" href="/client-area/login">{{name}}</a>
                         </li>
                         {{#if logout}}
                     <li class="nav-item btn-on-nav">
@@ -257,7 +265,7 @@ height: calc(100% - 8px)
                     </li>
                     {{else}}
                     <li class="nav-item btn-on-nav">
-                        <a href="/contactUs" class="nav-link closebtn" ref="contact_us.html"
+                        <a href="/contact-us" class="nav-link closebtn" ref="contact_us.html"
                             onclick="closeNav()">Book a demo</a>
                     </li>
                     {{/if}}
@@ -283,15 +291,15 @@ height: calc(100% - 8px)
                     <div class="footer-menu">
                         <ul>
                             <li><a href="/">Solution</a></li>
-                            <li><a href="/businessCases">Business Cases</a></li>
-                            <li><a href="/contactUs">Book a Demo</a></li>
+                            <li><a href="/business-cases">Business Cases</a></li>
+                            <li><a href="/contact-us">Book a Demo</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-6 col-sm-3 col-md-3 col-lg-3">
                     <div class="footer-menu">
                         <ul>
-                            <li><a href="/contactUs">Contact Us</a></li>
+                            <li><a href="/contact-us">Contact Us</a></li>
                             <li><a href="/pricing">Pricing</a></li>
                             <li><a href="/pricingFaq">FAQ</a></li>
                         </ul>

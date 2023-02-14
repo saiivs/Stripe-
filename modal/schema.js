@@ -63,10 +63,27 @@ let user = new schema({
    }
 })
 
+let blog = new schema({
+     title:{
+          type:String,
+          required:true
+     },
+     content :{
+          type:String,
+          required:true
+     },
+     image:{
+          type:String,
+          required:true
+     }
+})
+
 const products = mongoose.model('productDetail',productDetails);
-const users = mongoose.model('user',user)
+const users = mongoose.model('user',user);
+const blogs = mongoose.model('blog',blog)
 
 module.exports = {
     products,
-    users
+    users,
+    blogs
 }

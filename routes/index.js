@@ -75,14 +75,14 @@ function checkSubscription(req,res,next){
 
 function userSession(req,res,next){
   if(req.session.userLogin){
-    res.redirect("/clientArea")
+    res.redirect("/client-area")
   }else{
     next()
   }
 }
 
 function logoutSession(req,res,next){
-  if(!req.session.userLogin) {res.redirect('/ClientArea/login');}
+  if(!req.session.userLogin) {res.redirect('/client-area/login');}
   else {next()}
 }
 
@@ -156,7 +156,7 @@ router.get('/pricingFaq',client,checkLogout,(req,res,next)=>{
   }
 })
 
-router.get("/businessCases",checkSubscription,client,checkLogout,(req,res,next)=>{
+router.get("/business-cases",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user
     let logout = req.Btn
@@ -166,7 +166,7 @@ router.get("/businessCases",checkSubscription,client,checkLogout,(req,res,next)=
   }
 })
 
-router.get("/contactUs",checkSubscription,client,checkLogout,(req,res,next)=>{
+router.get("/contact-us",checkSubscription,client,checkLogout,(req,res,next)=>{
   try{
     let name = req.user; 
     let logout = req.Btn
@@ -435,7 +435,7 @@ catch(error){
 }  
 })
 
-router.get("/ClientArea/login",checkSubscription,userSession,async(req,res,next)=>{
+router.get("/client-area/login",checkSubscription,userSession,async(req,res,next)=>{
   try{
   let err = req.session.Error ? req.session.Error : false;
   res.render("userLogin",{err,otherPages:true,pageTitle:"User Login - "})
@@ -448,7 +448,7 @@ router.get("/ClientArea/login",checkSubscription,userSession,async(req,res,next)
    
 }) 
  
-router.get('/clientArea',checkSubscription,logoutSession,async(req,res,next)=>{
+router.get('/client-area',checkSubscription,logoutSession,async(req,res,next)=>{
   try{
           let userEmail = req.session.loginEmail
           let dataArr = [] 
@@ -479,7 +479,7 @@ router.get('/clientArea',checkSubscription,logoutSession,async(req,res,next)=>{
   }
 }) 
 
-router.post("/ClientArea/Get",async(req,res,next)=>{
+router.post("/client-area/Get",async(req,res,next)=>{
   try{
       req.session.productSubmitted =false;
       let {userEmail,userPass} = req.body;
@@ -489,7 +489,7 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
       if(userData.status == "userNotExist"){
 
         req.session.Error = "*Wrong username or password" 
-        res.redirect('/ClientArea/login')
+        res.redirect('/client-area/login')
         
       }
       else if(userData.status){
@@ -497,12 +497,12 @@ router.post("/ClientArea/Get",async(req,res,next)=>{
         let user = await database.getUser(req.body.userEmail)
         req.session.currentUser = user
         req.session.userLogin = true;
-        res.redirect("/clientArea")
+        res.redirect("/client-area")
       }
       else{
 
         req.session.Error = "*Invalid Password or Email ID"
-        res.redirect('/ClientArea/login')
+        res.redirect('/client-area/login')
 
       }
   }catch(error){
@@ -661,7 +661,7 @@ router.get('/user/LogOut',(req,res,next)=>{
     let urlFrom = req.headers.referer; 
     let URL = url.parse(urlFrom,true); 
     URL = URL.pathname;  
-    if(URL == '/clientArea') res.redirect('/ClientArea/login');
+    if(URL == '/client-area') res.redirect('/client-area/login');
     else res.redirect(URL)
   }catch(error){
     console.log(error);
@@ -670,8 +670,45 @@ router.get('/user/LogOut',(req,res,next)=>{
   
 })  
  
-router.get('/test',(req,res)=>{
-  res.render("emailOutput")
+router.get('/BlogCreator',(req,res)=>{
+  if(req.session.blogError){
+    res.render("blog",{error:req.session.blogError})
+    req.session.blogError = false;
+  }else{
+     res.render("blogCreator")
+  }
+})
+
+router.get("/Blogs/:title",client,async(req,res)=>{
+  let titleText = req.params.title
+  let name =req.user
+  let logout = req.Btn
+  let blogContent = await database.getBlogs(titleText) 
+  res.render('blog',{ blogContent,name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
+})
+
+router.post('/blogUpload/:title',async(req,res)=>{
+  try{
+    let image = req.files.image
+    let blogId = await database.CreateBlog(req.body,image.name)
+    console.log(blogId);
+    let id = blogId._id
+    if(blogId){
+      console.log("saved");
+      image.mv(`./public/blogImg/${id}.jpg`,(err,data)=>{
+        if(err){
+          req.session.blogError = "*Something Went Wrong"
+          res.redirect('/BlogCreator')
+        }else{
+          let titleUrl = blogId.title.split(" ").join("-");
+          res.redirect(`/Blogs/${titleUrl}`)
+        }
+      })
+    }
+  }catch(error){
+    console.log(error);
+  }
+  
 })
     
 module.exports = router;

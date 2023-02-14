@@ -1,0 +1,111 @@
+
+  
+  
+  <style>
+  body {
+  background-color: black;
+  font-family:Ubuntu-Regular,sans-serif;
+}
+  
+.whiteBox {
+  background-color: white;
+  height: 85vh;
+  margin: auto;
+}
+
+.ConHeading{
+  display: flex;
+  justify-content: center; 
+}
+
+.content{
+ padding: 1.5rem;
+ font-weight: 600;
+}
+
+.uploadBtn{
+  display: flex;
+  justify-content: center;
+}
+
+.defBtn{
+  background: #059DFF;
+  color: #f2f0fb !important;
+  padding: 10px 15px!important;
+  border: transparent;
+  border-radius: 1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.defBtn:hover {
+  background-color: black;
+}
+
+.errStyle{
+    font-weight: 500;
+    font-size: smaller;
+}
+.uploaded{
+    background-color: green;   
+}
+.uploaded:hover{
+    background-color: green; 
+}
+</style>
+</head>
+<body>
+    <div class="container">
+  <header class="py-3 mb-4 border-bottom">
+
+    <img
+      src="https://charpstar.se/Configurator/Box/Images/charpstar_white_text-only_logotype.svg"
+      width="150px"
+    />
+
+  </header>
+</div>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="whiteBox rounded">
+                    <div class="ConHeading pt-4">
+                        <h2>Blog Creator</h2>
+                    </div>
+                    <div class="col-lg-9 mx-auto">
+                        <div class="content">
+                            <form action="placeholder" method="POST" id="blogContent" enctype="multipart/form-data">
+                                <div class="mb-3 mt-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="title" id="titleInput" placeholder="type here">
+                                    <small class="text-danger errStyle" id="Err1"></small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Text Area</label>
+                                    <textarea class="form-control" id="textAreaInput" name="textArea" rows="3" placeholder="type here"></textarea>
+                                    <small class="text-danger errStyle" id="Err2"></small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Upload Image</label>
+                                    <input class="form-control" id="imageInput" type="file" name="image">
+                                </div>
+                                <small class="text-danger errStyle" id="Err3"></small>
+                                <div class="uploadBtn mt-5">
+                                    <button type="submit" class="defBtn" id="SuccBtn">UPLOAD</button>
+                                </div>
+                            </form>
+                        </div>
+                       
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+<script src="js/blog.js"></script>
+
+
+
