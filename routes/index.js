@@ -687,7 +687,7 @@ router.get("/Blogs/:title",client,async(req,res)=>{
   res.render('blog',{ blogContent,name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
 })
 
-router.post('/blogUpload/:title',async(req,res)=>{
+router.post('/blogUpload',async(req,res)=>{
   try{
     let image = req.files.image
     let blogId = await database.CreateBlog(req.body,image.name)

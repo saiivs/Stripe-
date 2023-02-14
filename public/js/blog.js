@@ -1,5 +1,5 @@
 
-const template = (title) => `/blogUpload/${title}`;
+const template = (title) => `/blogUpload`;
 document.getElementById('blogContent').addEventListener('submit', function(e) {
     e.preventDefault();
     let approved = false;
