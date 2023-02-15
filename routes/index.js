@@ -2,7 +2,8 @@
 let express = require('express');
 let router = express.Router();
 var path = require('path');
-require('dotenv').config()
+require('dotenv').config();
+const fs = require('fs')
 const url = require('url')
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 const { v4: uuidv4 } = require('uuid');
@@ -683,28 +684,48 @@ router.get("/Blogs/:title",client,async(req,res)=>{
   let titleText = req.params.title
   let name =req.user
   let logout = req.Btn
-  let blogContent = await database.getBlogs(titleText) 
-  res.render('blog',{ blogContent,name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
+  res.render(`${titleText}`,{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
 })
 
 router.post('/blogUpload',async(req,res)=>{
   try{
-    let image = req.files.image
-    let blogId = await database.CreateBlog(req.body,image.name)
-    console.log(blogId);
-    let id = blogId._id
-    if(blogId){
-      console.log("saved");
-      image.mv(`./public/blogImg/${id}.jpg`,(err,data)=>{
+    let image = req.files.image;
+    let name = image.name.split(" ").join("");
+      image.mv(`./public/blogImg/${name}`,(err,data)=>{
         if(err){
           req.session.blogError = "*Something Went Wrong"
           res.redirect('/BlogCreator')
         }else{
-          let titleUrl = blogId.title.split(" ").join("-");
-          res.redirect(`/Blogs/${titleUrl}`)
-        }
-      })
+          let titleUrl = req.body.title.split(" ").join("-");
+          console.log({titleUrl});
+          let data = `<style>
+                      body {
+                    font-family:Ubuntu-Regular,sans-serif;
+                      }
+                    </style>
+                    <div class="mainBoxBlog">
+                        <div class="leftcolumn">
+                            <div class="blogCard">
+                                <h2>${req.body.title}</h2>
+                                <div class="fakeimg" style="height:350px;"><img class="blogImg" src="/blogImg/${name}" alt=""></div>
+                                <p style="white-space: pre-line;">${req.body.textArea}</p>  
+                            </div>
+                        </div> 
+                  </div>
+
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+                    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+                    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+                    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+                    <script src="https://cdnx.charpstar.net/js/main.js"></script>
+                  `                
+      fs.writeFile(`./views/${titleUrl}.hbs`,data,()=>{
+        res.redirect(`/Blogs/${titleUrl}`)
+      }) 
     }
+      })
+   
   }catch(error){
     console.log(error);
   }
