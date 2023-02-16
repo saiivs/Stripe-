@@ -68,11 +68,15 @@ let blog = new schema({
           type:String,
           required:true
      },
-     content :{
+     SubArea :{
           type:String,
           required:true
      },
      image:{
+          type:String,
+          required:true
+     },
+     titleUrl:{
           type:String,
           required:true
      }

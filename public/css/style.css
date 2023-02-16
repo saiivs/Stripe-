@@ -3167,6 +3167,12 @@ td {
     height:100%;
     object-fit:cover;
 }
+/* blog css ends */
+
+/* blog list css */
+.mainBlogList{
+    padding: 9rem;
+}
 
   @media only screen and (max-width: 3053px){
     .custombtn{
@@ -3275,6 +3281,11 @@ td {
       .cutomBtnIndex{
         width: 70%;
         margin: auto;
+      }
+
+      .mainBlogList{
+        padding: 2rem;
+        padding-top: 6rem;
       }
   }
  

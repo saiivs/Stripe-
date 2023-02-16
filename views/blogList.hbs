@@ -1,0 +1,25 @@
+
+
+<div class="row row-cols-3 g-4 mainBlogList">  
+    {{#each blogData}}  
+  <div class="col-12 col-sm-12 col-lg-4">
+    <a href="/Blogs/{{this.titleUrl}}">
+        <div class="card" style="height: 30.5rem;" >
+      <img style="height: 16rem;" src="/blogImg/{{this.image}}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/Blogs/{{this.titleUrl}}" >{{this.title}}</a></h5>
+        <p class="card-text" style="overflow-wrap: break-word;">
+          {{this.SubArea}}
+        </p>
+      </div>
+    </div>  
+    </a> 
+  </div>
+   {{/each}}
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/owl.carousel.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/wow.min.js"></script>
+    <script src="https://cdnx.charpstar.net/js/main.js"></script>

@@ -212,11 +212,12 @@ module.exports = {
     },
 
     CreateBlog:async(data,imageName)=>{
-        let titleText = data.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+        let url = data.title.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, '-');
         let blogContent = {
-            title:titleText,
-            content:data.textArea,
-            image:imageName
+            title:data.title,
+            SubArea:data.SubArea,
+            image:imageName,
+            titleUrl:url
         }
 
         let blog = new db.blogs(blogContent);
@@ -224,10 +225,9 @@ module.exports = {
         return response
     },
 
-    getBlogs:async(titleText)=>{
-        titleText = titleText.split("-").join(" ");
-        let data = await db.blogs.find({title:titleText});
-        console.log(data[0]);
+    getBlogs:async()=>{
+        let data = await db.blogs.find({});
+        console.log(data);
         if(data) return data
     }
 }

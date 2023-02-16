@@ -669,7 +669,15 @@ router.get('/user/LogOut',(req,res,next)=>{
     next(error)
   }
   
-})  
+})
+
+router.get('/Blogs',client,async(req,res)=>{
+  let blogData = await database.getBlogs()
+  console.log(blogData);
+  let name =req.user
+  let logout = req.Btn
+  res.render('blogList',{blogData,name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - "})
+})
  
 router.get('/BlogCreator',(req,res)=>{
   if(req.session.blogError){
@@ -682,30 +690,31 @@ router.get('/BlogCreator',(req,res)=>{
 
 router.get("/Blogs/:title",client,async(req,res)=>{
   let titleText = req.params.title
+  titleText = titleText.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, '-');
   let name =req.user
   let logout = req.Btn
   res.render(`${titleText}`,{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
 })
-
+ 
 router.post('/blogUpload',async(req,res)=>{
   try{
     let image = req.files.image;
-    let name = image.name.split(" ").join("");
+    let name = image.name.split(" ").join("-");
+    database.CreateBlog(req.body,name)
       image.mv(`./public/blogImg/${name}`,(err,data)=>{
         if(err){
           req.session.blogError = "*Something Went Wrong"
           res.redirect('/BlogCreator')
         }else{
-          let titleUrl = req.body.title.split(" ").join("-");
-          let indexQ = titleUrl.indexOf('?');
-          let indexH = titleUrl.indexOf('#');
-          let flagQ = indexQ == -1 ? true : false;
-          let flagH = indexH == -1 ? true : false;
-          if(!flagQ) titleUrl = titleUrl.replace('?','')
-          if(!flagH) titleUrl = titleUrl.replace('#','')
-          let data = `<style>
+          let titleUrl = req.body.title
+          titleUrl = titleUrl.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, '-');
+          console.log({titleUrl});
+          let data = `<style> 
                       body {
                     font-family:Ubuntu-Regular,sans-serif;
+                      }
+                      a{
+                        overflow-wrap: anywhere;
                       }
                     </style>
                     <div class="mainBoxBlog">
@@ -713,7 +722,7 @@ router.post('/blogUpload',async(req,res)=>{
                             <div class="blogCard">
                                 <h2>${req.body.title}</h2>
                                 <div class="fakeimg" style="height:350px;"><img class="blogImg" src="/blogImg/${name}" alt=""></div>
-                                <p style="white-space: pre-line;">${req.body.textArea}</p>  
+                                <p style="white-space: pre-line; overflow-wrap: break-word;">${req.body.textArea}</p>  
                             </div>
                         </div> 
                   </div>
