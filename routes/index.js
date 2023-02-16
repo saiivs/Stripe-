@@ -697,7 +697,12 @@ router.post('/blogUpload',async(req,res)=>{
           res.redirect('/BlogCreator')
         }else{
           let titleUrl = req.body.title.split(" ").join("-");
-          console.log({titleUrl});
+          let indexQ = titleUrl.indexOf('?');
+          let indexH = titleUrl.indexOf('#');
+          let flagQ = indexQ == -1 ? true : false;
+          let flagH = indexH == -1 ? true : false;
+          if(!flagQ) titleUrl = titleUrl.replace('?','')
+          if(!flagH) titleUrl = titleUrl.replace('#','')
           let data = `<style>
                       body {
                     font-family:Ubuntu-Regular,sans-serif;
@@ -724,7 +729,7 @@ router.post('/blogUpload',async(req,res)=>{
         res.redirect(`/Blogs/${titleUrl}`)
       }) 
     }
-      })
+  })
    
   }catch(error){
     console.log(error);
