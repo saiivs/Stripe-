@@ -672,28 +672,43 @@ router.get('/user/LogOut',(req,res,next)=>{
 })
 
 router.get('/Blogs',client,async(req,res)=>{
+  try {
   let blogData = await database.getBlogs()
   console.log(blogData);
   let name =req.user
   let logout = req.Btn
   res.render('blogList',{blogData,name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - "})
+  } catch (error) {
+    next(error)
+  }
+  
 })
  
 router.get('/BlogCreator',(req,res)=>{
-  if(req.session.blogError){
+  try {
+    if(req.session.blogError){
     res.render("blog",{error:req.session.blogError})
     req.session.blogError = false;
   }else{
      res.render("blogCreator")
   }
+  } catch (error) {
+   next(error) 
+  }
+  
 })
 
 router.get("/Blogs/:title",client,async(req,res)=>{
+  try{
   let titleText = req.params.title
   titleText = titleText.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, '-');
   let name =req.user
   let logout = req.Btn
   res.render(`${titleText}`,{name,nav:true,foo:true,logout,otherPages:true,pageTitle:"Blogs - " })
+  }catch(error){
+    next(error)
+  }
+  
 })
  
 router.post('/blogUpload',async(req,res)=>{

@@ -1,22 +1,34 @@
-
-
-<div class="row row-cols-3 g-4 mainBlogList">  
+<div class="container" style="margin-top: 13rem;
+    margin-bottom: 13rem;">
+  <div class="row g-4">
+    {{#if blogData}}  
     {{#each blogData}}  
-  <div class="col-12 col-sm-12 col-lg-4">
-    <a href="/Blogs/{{this.titleUrl}}">
-        <div class="card" style="height: 30.5rem;" >
-      <img style="height: 16rem;" src="/blogImg/{{this.image}}" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title"><a href="/Blogs/{{this.titleUrl}}" >{{this.title}}</a></h5>
-        <p class="card-text" style="overflow-wrap: break-word;">
-          {{this.SubArea}}
-        </p>
+    <div class="col-sm-12 col-lg-4">
+      <a href="/Blogs/{{this.titleUrl}}">
+         <div class="card" style="width: 23rem;margin: auto;height: 29rem;">
+        <div style="width:100%;height:250px;">
+          <img class="card-img-top" style=" width:100%;height:100%;object-fit:cover;" src="/blogImg/{{this.image}}" alt="Card image cap">
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-title"><a href="/Blogs/{{this.titleUrl}}">{{this.title}}</a></h5>
+          <p class="card-text cut-text" style="overflow-wrap: break-word;">{{this.SubArea}}</p>
+        </div>
       </div>
-    </div>  
-    </a> 
+      </a>
+    </div>
+    {{/each}}
+   {{else}}
+   <div class="tableNotFound">
+          <h3>No blogs to view.</h3>
+          <div>
+            <img class="notFoundPng" src="/images/empty-folder (2).png" alt="">
+          </div>
+        </div>
+   {{/if}}
   </div>
-   {{/each}}
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdnx.charpstar.net/js/bootstrap.min.js"></script>
